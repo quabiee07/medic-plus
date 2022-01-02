@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="  background-color: #333D7B;">
+    <main>
+        <section id="sign-up" class="p-md-5 ">
+
+            <div class="d-flex">
+                <div class="m-auto col-12 p-5" style="">
+                    <header class="d-flex justify-content-center align-items-baseline">
+                        <div> <img src="images/Vector.png" class="p-2" alt=""></div>
+                        <div><img src="images/MedicPlus.png" class="p-2" alt=""></div>
+                    </header>
+                    <!-- switch users -->
+                    <div id="individuals" class="d-flex justify-content-between my-3">
+                        <p id="patients" class="individual lead">patient</p>
+                        <p id="doctors" class="individual lead">doctors</p>
+                        <p id="admin" class="individual lead">admin</p>
+                    </div>
+
+                    <h2 class="text-center">Account Sign up</h2>
+                    <!-- sign up form -->
+
+                    <form action="" class="my-5 d-md-flex flex-wrap justify-content-between">
+
+                        <div class="col-md-5 col"> <label for="fname" class="my-2">firstname:</label>
+                            <input type="text" id="fname" class="form-control rounded">
+                        </div>
+
+                        <div class="col-md-5 col">
+                            <label for="lname" class="my-2">lastname:</label>
+                            <input type="text" id="lname" class="form-control rounded">
+                        </div>
+
+                        <div class="col-md-5 col">
+                            <label for="email" class="my-2">email:</label>
+                            <input type="text" id="email" class="form-control rounded">
+                        </div>
+
+                        <div class="col-md-5 col">
+                            <label for="phone" class="my-2">phone:</label>
+                            <input type="number" id="phone" class="form-control rounded">
+                        </div>
+
+                        <div class="col-md-5 col">
+                            <label for="password" class="my-2">password:</label>
+                            <input type="password" id="password" class="form-control rounded">
+                        </div>
+
+                        <div class="col-md-5 col">
+                            <label for="cpassword" class="my-2">confirm password:</label>
+                            <input type="text" id="cpassword" class="form-control rounded">
+                        </div>
+
+
+
+                        <div class="col-12">
+                            <label for="gender" class="my-2">gender</label><br>
+
+                            <input type="radio" value="male" name="gender" id="male">male <br>
+                            <input type="radio" value="female" name="gender" id="female">female
+                        </div>
+
+
+
+                        <button type="submit" class="btn btn-lg block btn-success col-md-3 col-12 mt-5 m-md-auto">Sign Up</button>
+                    </form>
+                    <p class="text-center mt-4" style="font-weight: lighter; text-transform: capitalize;">already have an account?
+                        <a href="index.html" style="color: #9CC2D5; text-decoration: none;">sign in</a>
+                    </p>
+                </div>
+            </div>
+
+        </section>
+    </main>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</html>

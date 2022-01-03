@@ -7,8 +7,8 @@ for (let i = 0; i < bookAppointment.length; i++) {
                 <div class="d-flex flex-wrap justify-content-center">
     
                     <div style="overflow-x:hidden " class="col-12 col-lg-10 d-flex align-items-center p-2 bg-light mt-5">
-                        <img src="images/Account.png" alt="">
-                        <div> <span class="fw-bold h4">Hello, William Kpenkelemense</span>
+                    <div class="p-2 col-2"> <img src="images/profile.svg" class="img-fluid " alt=""></div> 
+                        <div class="col mx-3"> <span class="fw-bold h4">Hello, William Kpenkelemense</span>
                             <p class="text-secondary">Welcome back</p>
                         </div>
     

@@ -15,9 +15,9 @@ const dashDisplay = () => {
     <section class="container p-md-5">
                 <div class="d-flex flex-wrap justify-content-center">
     
-                    <div style="overflow-x:hidden " class="col-12 d-flex align-items-center p-2 bg-light mt-5">
-                        <img src="images/Account.png" alt="">
-                        <div> <span class="fw-bold h4">Hello, William Kpenkelemense</span>
+                    <div style="overflow-x:hidden " class="col-12 d-flex flex-wrap align-items-center p-2 bg-light mt-5">
+                      <div class="p-3 col-3 col-lg-2 "> <img src="images/profile.svg" class="img-fluid " alt=""></div> 
+                        <div class="col p-md-3"> <span class="fw-bold h4">Hello, William Kpenkelemense</span>
                             <p class="text-secondary">Welcome back</p>
                         </div>
     

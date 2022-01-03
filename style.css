@@ -140,6 +140,6 @@ a {
 
 @media screen and (max-width:550px) {
     .prescription li {
-        font-size: 10px;
+        font-size: 8px;
     }
 }

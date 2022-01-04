@@ -156,10 +156,10 @@ a {
 
 @media screen and (max-width:550px) {
     .prescription li {
-        font-size: 12px;
+        font-size: 10px;
     }
     .appointment li {
-        font-size: 12px;
+        font-size: 10px;
     }
 }
 

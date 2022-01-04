@@ -1,3 +1,5 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:wght@600&display=swap'); */
+
 .individual {
     font-size: 25px;
     text-transform: capitalize;
@@ -13,7 +15,7 @@
 
 body {
     background-color: #FCECEF;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Montserrat";
 }
 
 label {
@@ -53,7 +55,7 @@ input {
 .side-navigation {
     position: fixed;
     height: 100%;
-    width: 0px;
+    width: 250px;
     background-color: #333D7B;
     top: 0;
     left: 0;
@@ -70,7 +72,6 @@ input {
 }
 
 main {
-    margin-left: 0px;
     overflow-x: hidden;
     transition: all .5s;
 }
@@ -119,6 +120,7 @@ a {
     /* text-align: center; */
     flex: 16.6%;
     text-align: center;
+    font-size: 15px;
 }
 
 @media screen and (max-width:992px) {
@@ -127,14 +129,28 @@ a {
     }
 }
 
+#patientDetails {
+    margin-left: 250px;
+}
+
+@media screen and (max-width:768px) {
+    .side-navigation {
+        width: 0;
+    }
+    #patientDetails {
+        margin-left: 0px;
+    }
+}
+
 .appointment li:first-child {
-    flex-basis: 8%;
-    text-align: start;
+    flex-basis: 5%;
+    text-align: center;
 }
 
 .appointment:first-child li,
 .prescription:first-child li {
     font-weight: bold;
+    font-size: 15px;
     text-transform: capitalize;
 }
 
@@ -146,3 +162,39 @@ a {
         font-size: 12px;
     }
 }
+
+#password,
+#email {
+    height: 50px;
+    border-radius: 10px;
+}
+
+#login {
+    border-radius: 10px;
+    box-shadow: 0 2px 3px #9CC2D5;
+}
+
+input,
+select {
+    background-color: #FCECEF;
+    height: 50px;
+    border-radius: 10px;
+    outline: none;
+}
+
+button {
+    border-radius: 10px;
+}
+
+#greeting {
+    font-weight: 900;
+}
+
+#appointment-date {
+    background-image: url("images/calender.png");
+    background-repeat: no-repeat;
+    background-position: 95%;
+}
+
+
+/*  */

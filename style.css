@@ -155,11 +155,17 @@ a {
 }
 
 @media screen and (max-width:550px) {
+    .appointment:first-child li,
+    .prescription:first-child li {
+        font-weight: bold;
+        font-size: 12px;
+        text-transform: capitalize;
+    }
     .prescription li {
-        font-size: 10px;
+        font-size: 12px;
     }
     .appointment li {
-        font-size: 10px;
+        font-size: 12px;
     }
 }
 

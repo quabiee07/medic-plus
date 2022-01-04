@@ -185,7 +185,8 @@ input,
 select,
 input[type=text],
 input[type=phone],
-input[type=password] {
+input[type=password],
+input[type=email] {
     background-color: #FCECEF;
     height: 50px;
     border-radius: 10px;

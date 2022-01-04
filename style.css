@@ -175,20 +175,25 @@ a {
     border-radius: 10px;
 }
 
-#login {
+#login,
+#signUp {
     border-radius: 10px;
     box-shadow: 0 2px 3px #9CC2D5;
 }
 
 input,
-select {
+select,
+input[type=text],
+input[type=phone],
+input[type=password] {
     background-color: #FCECEF;
     height: 50px;
     border-radius: 10px;
     outline: none;
 }
 
-button {
+button,
+button[type="submit"] {
     border-radius: 10px;
 }
 
@@ -200,6 +205,10 @@ button {
     background-image: url("images/calender.png");
     background-repeat: no-repeat;
     background-position: 95%;
+}
+
+input[type=radio] {
+    height: auto;
 }
 
 

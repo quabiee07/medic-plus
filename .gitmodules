@@ -1,0 +1,3 @@
+ [submodules="./medic-plus-db"]
+ path="./medic-plus-db"
+ url="https://github.com/Eugene44-hub/medic-plus-database.git"

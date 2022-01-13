@@ -13,7 +13,7 @@
 
 
  const appointments = () => {
-         return patientDetails.innerHTML = `
+     patientDetails.innerHTML = `
 <section class="container p-md-5">
        <div class="d-flex flex-wrap justify-content-center">
 
@@ -25,7 +25,7 @@
 
      </div>
 
-           <div class="col-12">
+           <div class="col-12" id="appt-info">
 
            <ul class="appointment d-flex">
            <li>#</li>
@@ -36,70 +36,63 @@
            <li>action</li>
            </ul>
 
-           <ul class="appointment d-flex">
-           <li id="order">1</li>
-           <li id="name">Jonas Dubbie</li>
-           <li id='date'>09/07/2021</li>
-           <li id="time">9:30:00</li>
-           <li id="stat">Active</li>
-           <li class="modify">
-            <span class="edit"><img class="img-fluid" style="width:15px" src="/images/pen.png"></span>
-           <span class="delete"><img class="img-fluid mx-3" style="width:15px"  src="/images/garbage.png"></span>
-           </li>
-           </ul>
-
-           <ul class="appointment d-flex">
-           <li id="order">2</li>
-           <li id="name">Jonas Dubbie</li>
-           <li id='date'>09/07/2021</li>
-           <li id="time">9:30:00</li>
-           <li id="stat">Active</li>
-           <li class="modify">
-            <span class="edit"><img class="img-fluid" style="width:15px" src="/images/pen.png"></span>
-           <span class="delete"><img class="img-fluid mx-3" style="width:15px"  src="/images/garbage.png"></span>
-           </li>
-           </ul>
-
-           <ul class="appointment d-flex">
-           <li id="order">3</li>
-           <li id="name">Jonas Dubbie</li>
-           <li id='date'>09/07/2021</li>
-           <li id="time">9:30:00</li>
-           <li id="stat">Active</li>
-           <li class="modify">
-            <span class="edit"><img class="img-fluid" style="width:15px" src="/images/pen.png"></span>
-           <span class="delete"><img class="img-fluid mx-3" style="width:15px"  src="/images/garbage.png"></span>
-           </li>
-           </ul>
-
           
            </div>
         
    </section>
 `
-     }
-     /* <table class="" style="width:100%">
+         //  console.log(apptInfo)
+     const apptInfo = document.querySelector("#appt-info")
 
-                    <tr>
-                    <th>#</th>
-                    <th>doctor</th>
-                    <th>date</th>
-                    <th>time</th>
-                    <th>statue</th>
-                    <th>action</th>
-                    </tr>
+     getAllpatients()
+         .then(res => {
+             //  console.log(apptInfo)
+             console.log(res)
 
-                    <tr>
-                    <td>1</td>
-                    <td>Jonas Dubbie</td>
-                    <td/>09/07/2021</td>
-                    <td>9:30:00</td>
-                    <td>Active</td>
-                   
-                    <td>
-                    <span><img class="img-fluid" style="width:15px" src="/images/pen.png"></span>
-                    <span><img class="img-fluid " style="width:15px"  src="images/garbage.png"></span>
-                    <td>
-                    </tr>
+             res.map(patient => {
 
-                    </table> */
+                 apptInfo.innerHTML += `
+                <ul class="appointment d-flex">
+                <li id="order">${patient.id}</li>
+                <li id="name">Jonas Dubbie</li>
+                <li id='date'>${patient.apptDate}</li>
+                <li id="time">${patient.apptTime}</li>
+                <li id="stat">Active</li>
+                <li class="modify">
+                 <span class="edit"><img class="img-fluid" style="width:15px" src="/images/pen.png"></span>
+                <span class="delete"><img class="img-fluid mx-3" style="width:15px"  src="/images/garbage.png"></span>
+                </li>
+                </ul>
+     
+                `
+             })
+
+         })
+ }
+
+
+ /* <table class="" style="width:100%">
+
+                <tr>
+                <th>#</th>
+                <th>doctor</th>
+                <th>date</th>
+                <th>time</th>
+                <th>statue</th>
+                <th>action</th>
+                </tr>
+
+                <tr>
+                <td>1</td>
+                <td>Jonas Dubbie</td>
+                <td/>09/07/2021</td>
+                <td>9:30:00</td>
+                <td>Active</td>
+               
+                <td>
+                <span><img class="img-fluid" style="width:15px" src="/images/pen.png"></span>
+                <span><img class="img-fluid " style="width:15px"  src="images/garbage.png"></span>
+                <td>
+                </tr>
+
+                </table> */

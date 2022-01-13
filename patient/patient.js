@@ -12,8 +12,17 @@ const openNav = () => {
     patientDetails.style.marginLeft = "250px";
 }
 
+const getAllpatients = async() => {
+    const res = await fetch("https://medic-db-v1.herokuapp.com/patients")
+
+    const data = await res.json()
+
+    return data
+}
+
+
 const addPatients = async(info) => {
-    const res = await fetch("http://localhost:5000/patients", {
+    const res = await fetch("https://medic-db-v1.herokuapp.com/patients", {
         method: "POST",
         headers: {
             'Content-type': "application/json"
@@ -22,6 +31,16 @@ const addPatients = async(info) => {
     });
     const data = await res.json()
 
-    console.log(data)
-
+    return data
 }
+
+
+
+
+// async function fetchPatients() {
+//     const res = await fetch("https://medic-db-v1.herokuapp.com/users")
+
+//     const data = await res.json()
+
+//     console.log(data)
+// }

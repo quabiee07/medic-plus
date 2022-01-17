@@ -1,3 +1,4 @@
+import { dashDisplay } from "./dashboard.js"
 const patientDetails = document.querySelector("#patientDetails")
 
 dashDisplay()

@@ -1,18 +1,20 @@
+import { dashDisplay } from "../doctor/dashboard.js"
 const patientDetails = document.querySelector("#patientDetails")
+const sideNav = document.querySelector(".side-navigation")
 dashDisplay()
 
 
-const closeNav = () => {
+export const closeNav = () => {
     sideNav.style.width = "0px"
     patientDetails.style.marginLeft = "0px"
 }
 
-const openNav = () => {
+export const openNav = () => {
     sideNav.style.width = "250px"
     patientDetails.style.marginLeft = "250px";
 }
 
-const getAllpatients = async() => {
+export const getAllpatients = async() => {
     const res = await fetch("https://medic-db-v1.herokuapp.com/patients")
 
     const data = await res.json()
@@ -21,7 +23,7 @@ const getAllpatients = async() => {
 }
 
 
-const addPatients = async(info) => {
+export const addPatients = async(info) => {
     const res = await fetch("https://medic-db-v1.herokuapp.com/patients", {
         method: "POST",
         headers: {

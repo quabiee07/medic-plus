@@ -1,3 +1,4 @@
+import { closeNav, openNav } from "./patient/patient.js"
 const toggle = document.querySelector(".navbar-toggler")
 const close = document.querySelector("#close-btn")
 const sideNav = document.querySelector(".side-navigation")

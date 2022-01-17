@@ -1,3 +1,4 @@
+import { getAllpatients } from "../patient/patient.js"
 const prescription = document.querySelectorAll("#prescription")
 for (let i = 0; i < prescription.length; i++) {
     prescription[i].addEventListener("click", e => {
@@ -10,7 +11,7 @@ for (let i = 0; i < prescription.length; i++) {
 }
 
 const prescribe = () => {
-    return patientDetails.innerHTML = `
+        patientDetails.innerHTML = `
 <section class="container p-md-5">
 <div class="d-flex flex-wrap justify-content-center">
 
@@ -22,47 +23,39 @@ const prescribe = () => {
 
 </div>
 
-    <div class="col">
+    <div class="col" id="prescriptions">
 
-    <ul class="prescription d-flex">
+    <ul class="appointment d-flex">
+    <li>#</li>
     <li>doctor</li>
-    <li>date</li>
-    <li>time</li>
-    <li>disease</li>
-    <li>allergies</li>
-    <li>prescribe</li>
+   <li>disease</li>
+    <li>status</li>
+    <li>action</li>
     </ul>
-
-    <ul class="prescription d-flex">
-    <li id="name">Jonas Dubbie</li>
-    <li id='date'>09/07/2021</li>
-    <li id="time">9:30</li>
-    <li id="disease">Malaria & Typhoid</li>
-    <li class="allergy"> Nii </li>
-    <li class="prescribe"> Lonart Ds </li>
-    </ul>
-
-    <ul class="prescription d-flex">
-    <li id="name">Jonas Dubbie</li>
-    <li id='date'>09/07/2021</li>
-    <li id="time">9:30</li>
-    <li id="disease">Malaria & Typhoid</li>
-    <li class="allergy"> Nii </li>
-    <li class="prescribe"> Lonart Ds </li>
-    </ul>
-
-    <ul class="prescription d-flex">
-    <li id="name">Jonas Dubbie</li>
-    <li id='date'>09/07/2021</li>
-    <li id="time">9:30</li>
-    <li id="disease">Malaria & Typhoid</li>
-    <li class="allergy"> Nii </li>
-    <li class="prescribe"> Lonart Ds </li>
-    </ul>
-
    
     </div>
  
 </section>
 `
+        const prescribed = document.querySelector("#prescribed-btn")
+
+        const prescriptions = document.querySelector("#prescriptions")
+        getAllpatients()
+            .then(res => {
+                    res.map(patient => {
+                                prescriptions.innerHTML += `
+                <ul class="appointment d-flex">
+                <li id="id">${patient.id}</li>
+                <li id="name">${patient.patientName?`${patient.patientName}`:"John dubbie"}</li>
+                <li id="disease">Malaria & Typhoid</li>
+                <li id=status>Active</li>
+                <li class="prescribe"><button class="btn btn-success" id="prescribe-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">prescribe</button></li>
+                </ul>
+                `
+            })
+        })
+
+    prescribed.addEventListener("click", e => {
+        console.log(e.target)
+    })
 }

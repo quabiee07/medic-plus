@@ -30,7 +30,19 @@ const bookApp = () => {
                 </h4>
 
             <form class="mt-5" action="#">
-
+            <div class="my-lg-5 my-3 row flex-wrap justify-content-between">
+            <label for="name" class="col-lg-4 col-12 col-form-label" style="font-weight:500;">name</label>
+             <div class="col-12 col-lg-8">
+             <input type="text" class="w-100" style="background-color:#FCECEF80;border: none;" id="patient-name">
+             </div>
+         </div>
+            <div class="my-lg-5 my-3 row flex-wrap justify-content-between">
+            <label for="doctor" class="col-lg-4 col-12 col-form-label" style="font-weight:500;">doctor</label>
+             <div class="col-12 col-lg-8">
+             <input type="text" class="w-100" style="background-color:#FCECEF80;border: none;" id="doctor-name">
+             </div>
+         </div>
+         
          <div class="my-lg-5 my-3 row flex-wrap justify-content-between">
            <label for="specialization" class="col-lg-4 col-12 col-form-label" style="font-weight:500;">Specialization</label>
             <div class="col-12 col-lg-8">
@@ -47,12 +59,7 @@ const bookApp = () => {
             </div>
         </div>
                             
-        <div class="my-lg-5 my-3 row flex-wrap justify-content-between">
-        <label for="doctor" class="col-lg-4 col-12 col-form-label" style="font-weight:500;">doctor</label>
-         <div class="col-12 col-lg-8">
-         <input type="text" class="w-100" style="background-color:#FCECEF80;border: none;" id="doctor">
-         </div>
-     </div>
+      
 
      <div class="my-lg-5 my-3 row flex-wrap justify-content-between">
      <label for="appointment-date" class="col-lg-4 col-12 col-form-label" style="font-weight:500;">appointment date</label>
@@ -84,11 +91,13 @@ const bookApp = () => {
             e.preventDefault()
 
             const specialization = document.querySelector("#specialization").value
-            const doctor = document.querySelector("#doctor").value
+            const doctor = document.querySelector("#doctor-name").value
+            const patientName = document.querySelector("#patient-name").value
             const apptDate = document.querySelector("#appointment-date").value
             const apptTime = document.querySelector("#appointment-time").value
                 // console.log(specialization, doctor, apptDate, apptTime)
             const infos = {
+                patientName,
                 specialization,
                 doctor,
                 apptTime,
@@ -98,6 +107,13 @@ const bookApp = () => {
             console.log(infos)
 
             addPatients(infos)
+
+            document.querySelector("#specialization").value = ""
+            document.querySelector("#doctor-name").value = ""
+            document.querySelector("#patient-name").value = ""
+
+            document.querySelector("#appointment-date").value = ""
+            document.querySelector("#appointment-time").value = ""
 
         })
 

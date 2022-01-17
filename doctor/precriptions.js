@@ -40,22 +40,41 @@ const prescribe = () => {
         const prescribed = document.querySelector("#prescribed-btn")
 
         const prescriptions = document.querySelector("#prescriptions")
+        const confirm_name = document.querySelector("#confirm-patient")
         getAllpatients()
             .then(res => {
                     res.map(patient => {
                                 prescriptions.innerHTML += `
                 <ul class="appointment d-flex">
-                <li id="id">${patient.id}</li>
+                <li id=${patient.id}>${patient.id}</li>
                 <li id="name">${patient.patientName?`${patient.patientName}`:"John dubbie"}</li>
                 <li id="disease">Malaria & Typhoid</li>
                 <li id=status>Active</li>
                 <li class="prescribe"><button class="btn btn-success" id="prescribe-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">prescribe</button></li>
                 </ul>
-                `
+                ` 
             })
+            const pres_btn=document.querySelectorAll("#prescribe-btn")
+            const patientName=document.querySelectorAll("#name")
+           
+// patientDetails.addEventListener("click",e=>{
+//    if(e.target.id=="prescribed-btn"){
+//        console.log
+//    }
+// })
+
+            for(let i=0;i<pres_btn.length;i++){
+                pres_btn[i].addEventListener("click", e => {
+          
+    console.log(patientName[i].textContent)
+                })
+                         
+            //    prescribed.addEventListener("click",e=>{
+            //     console.log(patientName[i].textContent)
+
+            //    })
+            }
+              
         })
 
-    prescribed.addEventListener("click", e => {
-        console.log(e.target)
-    })
 }

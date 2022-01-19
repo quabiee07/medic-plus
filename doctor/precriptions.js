@@ -1,13 +1,13 @@
-import { getAllpatients } from "../patient/patient.js"
-const prescription = document.querySelectorAll("#prescription")
+import { getAllpatients } from "../patient/patient.js";
+const prescription = document.querySelectorAll("#prescription");
 for (let i = 0; i < prescription.length; i++) {
-    prescription[i].addEventListener("click", e => {
-        e.preventDefault()
+    prescription[i].addEventListener("click", (e) => {
+        e.preventDefault();
 
-        prescribe()
-            // sideNav.style.width = "0px"
-            // main.style.marginLeft = "0px"
-    })
+        prescribe();
+        // sideNav.style.width = "0px"
+        // main.style.marginLeft = "0px"
+    });
 }
 
 const prescribe = () => {
@@ -30,51 +30,78 @@ const prescribe = () => {
     <li>doctor</li>
    <li>disease</li>
     <li>status</li>
-    <li>action</li>
+    <li>prescribed</li>
     </ul>
-   
     </div>
- 
+  <div class="col-12 d-flex"> <button class="btn btn-lg btn-success m-auto" id="prescribe-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">prescribe</button></div> 
 </section>
-`
-        const prescribed = document.querySelector("#prescribed-btn")
 
-        const prescriptions = document.querySelector("#prescriptions")
-        const confirm_name = document.querySelector("#confirm-patient")
-        getAllpatients()
-            .then(res => {
-                    res.map(patient => {
+`;
+        const prescribed = document.querySelector("#prescribed-btn");
+
+        const prescriptions = document.querySelector("#prescriptions");
+        const confirm_id = document.querySelector("#confirm-id");
+        const doc_prescription = document.querySelector("#prescription-field");
+        getAllpatients().then((res) => {
+                    res.map((patient, index) => {
                                 prescriptions.innerHTML += `
                 <ul class="appointment d-flex">
-                <li id=${patient.id}>${patient.id}</li>
-                <li id="name">${patient.patientName?`${patient.patientName}`:"John dubbie"}</li>
+                <li id=patient-id>${patient.id}</li>
+                <li id="name">${patient.patientName ? `${patient.patientName}` : "John dubbie"
+                }</li>
                 <li id="disease">Malaria & Typhoid</li>
                 <li id=status>Active</li>
-                <li class="prescribe"><button class="btn btn-success" id="prescribe-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">prescribe</button></li>
+                <li class="prescribe">${patient.prescription?`${patient.prescription}`:"No prescription"}</li>
                 </ul>
-                ` 
-            })
-            const pres_btn=document.querySelectorAll("#prescribe-btn")
-            const patientName=document.querySelectorAll("#name")
-           
-// patientDetails.addEventListener("click",e=>{
-//    if(e.target.id=="prescribed-btn"){
-//        console.log
-//    }
-// })
+                `;
+        });
 
-            for(let i=0;i<pres_btn.length;i++){
-                pres_btn[i].addEventListener("click", e => {
+        const patientsName = res.map((patientName) => ({
+            patientName: patientName.patientName,
+            id: patientName.id,
+        }));
+        // const patientNames2=document.querySelectorAll("#name")
+
+        console.log(patientsName);
+        const pres_btn = document.querySelectorAll("#prescribe-btn");
+const pid=document.querySelectorAll("#patient-id")
+const pname=document.querySelectorAll("#name")
+
+prescribed.addEventListener("click",e=>{
+    console.log(doc_prescription.value)
+    for(let i=0;i<pname.length;i++){
+        // console.log(pname[i].textContent);
+        if(confirm_id.value== pid[i].textContent){
+            // console.log(pname[i].textContent,pname[i].previousElementSibling)
+        const prescription=doc_prescription.value
+//   console.log(prescription);
+  updateUserPrescription(confirm_id.value,prescription)
+    }
+    }
+   
+   
+})
+
           
-    console.log(patientName[i].textContent)
-                })
-                         
-            //    prescribed.addEventListener("click",e=>{
-            //     console.log(patientName[i].textContent)
+    });
+};
+const fetchPatient=async (id)=>{
+const res= await fetch(`https://medic-db-v1.herokuapp.com/patients/${id}`)
+const data=await res.json()
+return data
+}
 
-            //    })
-            }
-              
-        })
-
+const updateUserPrescription=async(id,prescription)=>{
+    const singlePatient= await fetchPatient(id)
+    const update={...singlePatient,prescription}
+const res= await fetch(`https://medic-db-v1.herokuapp.com/patients/${id}`,{
+    method:"PUT",
+    headers:{
+        "Content-type":"application/json"
+    },
+    body:JSON.stringify(update)
+    
+})
+const data= await res.json()
+console.log(data)
 }

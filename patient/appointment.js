@@ -55,7 +55,7 @@
                  apptInfo.innerHTML += `
                 <ul class="appointment d-flex">
                 <li id="order">${patient.id}</li>
-                <li id="name">Jonas Dubbie</li>
+                <li id="name">${patient.patientName}</li>
                 <li id='date'>${patient.apptDate}</li>
                 <li id="time">${patient.apptTime}</li>
                 <li id="stat">Active</li>

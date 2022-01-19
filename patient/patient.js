@@ -1,5 +1,5 @@
 import { dashDisplay } from "../doctor/dashboard.js"
-const patientDetails = document.querySelector("#patientDetails")
+const patientDetails = document.querySelector("#adminDetails")
 const sideNav = document.querySelector(".side-navigation")
 dashDisplay()
 

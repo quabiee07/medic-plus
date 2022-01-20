@@ -1,4 +1,4 @@
-import { addPatients } from "./patient.js"
+import { addPatients, closeNav } from "./patient.js"
 const bookAppointment = document.querySelectorAll("#book-appointment")
 for (let i = 0; i < bookAppointment.length; i++) {
     bookAppointment[i].addEventListener("click", e => {

@@ -70,13 +70,12 @@ export const dashDisplay = () => {
 
 
 
-<div class="col col-md-6 col-lg-4 px-3  m-auto m-lg-0 ">
-<div class="card mt-4 mt-lg-0  m-auto m-lg-0">
+<div class="col col-md-6 col-lg-4 px-3  m-auto m-lg-0  ">
+<div class=" card  mt-4 mt-lg-0 m-auto bg-light hover-card m-lg-0" style="height: 250px;  background-color: #FFFFFF;font-size:24px">
     <div class="card-body h4 d-flex flex-wrap">
         <div class="card-img col-12"><img src="../images/prescription-purple.png" alt=""></div>
 
-        <p class="align-self-end h4 fw-bold col-12 " style="font-size:24px; height: 250px; ">Manage Doctors
-    </p>
+        <p class="align-self-end h4 fw-bold col-12 ">Manage Doctor</p>
     </div>
 
 </div>

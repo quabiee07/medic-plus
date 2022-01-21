@@ -34,31 +34,45 @@ const prescribeList = () => {
    </ul>
 
    <ul class="prescription d-flex">
-   <li id="name">Jonas Dubbie</li>
-   <li id='date'>09/07/2021</li>
-   <li id="time">9:30</li>
+   <li id="doc-name">Jonas Dubbie</li>
+   <li id="name">Brutus Dam</li>
    <li id="disease">Malaria & Typhoid</li>
-   <li class="allergy"> Nii </li>
+   <li class="allergy"> dust </li>
    <li class="prescribe"> Lonart Ds </li>
    </ul>
 
    <ul class="prescription d-flex">
-   <li id="name">Jonas Dubbie</li>
-   <li id='date'>09/07/2021</li>
-   <li id="time">9:30</li>
+   <li id="doc-name">Jonas Dubbie</li>
+   <li id="name">Brutus Dam</li>
    <li id="disease">Malaria & Typhoid</li>
-   <li class="allergy"> Nii </li>
+   <li class="allergy"> dust </li>
    <li class="prescribe"> Lonart Ds </li>
    </ul>
 
    <ul class="prescription d-flex">
-   <li id="name">Jonas Dubbie</li>
-   <li id='date'>09/07/2021</li>
-   <li id="time">9:30</li>
+   <li id="doc-name">Jonas Dubbie</li>
+   <li id="name">Brutus Dam</li>
    <li id="disease">Malaria & Typhoid</li>
-   <li class="allergy"> Nii </li>
+   <li class="allergy"> dust </li>
    <li class="prescribe"> Lonart Ds </li>
    </ul>
+
+   <ul class="prescription d-flex">
+   <li id="doc-name">Jonas Dubbie</li>
+   <li id="name">Brutus Dam</li>
+   <li id="disease">Malaria & Typhoid</li>
+   <li class="allergy"> dust </li>
+   <li class="prescribe"> Lonart Ds </li>
+   </ul>
+
+   <ul class="prescription d-flex">
+   <li id="doc-name">Jonas Dubbie</li>
+   <li id="name">Brutus Dam</li>
+   <li id="disease">Malaria & Typhoid</li>
+   <li class="allergy"> dust </li>
+   <li class="prescribe"> Lonart Ds </li>
+   </ul>
+
 
   
    </div>

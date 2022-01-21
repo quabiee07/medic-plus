@@ -26,39 +26,30 @@ const view_doctors = () => {
 
    <ul class="prescription d-flex">
    <li>doctor</li>
-   <li>patient</li>
-   <li>disease</li>
-   <li>allergy</li>
-   <li>prescription</li>
+   <li>Specialization</li>
+   <li>Username</li>
   
    </ul>
 
    <ul class="prescription d-flex">
    <li id="name">Jonas Dubbie</li>
-   <li id='date'>09/07/2021</li>
-   <li id="time">9:30</li>
-   <li id="disease">Malaria & Typhoid</li>
-   <li class="allergy"> Nii </li>
-   <li class="prescribe"> Lonart Ds </li>
+   <li id='date'>Dentist</li>
+   <li id="time">jonasdub</li>
    </ul>
 
    <ul class="prescription d-flex">
-   <li id="name">Jonas Dubbie</li>
-   <li id='date'>09/07/2021</li>
-   <li id="time">9:30</li>
-   <li id="disease">Malaria & Typhoid</li>
-   <li class="allergy"> Nii </li>
-   <li class="prescribe"> Lonart Ds </li>
+   <li id="name">Farma Damas</li>
+   <li id='date'>pharmacist</li>
+   <li id="time">fardam</li>
    </ul>
 
    <ul class="prescription d-flex">
-   <li id="name">Jonas Dubbie</li>
-   <li id='date'>09/07/2021</li>
-   <li id="time">9:30</li>
-   <li id="disease">Malaria & Typhoid</li>
-   <li class="allergy"> Nii </li>
-   <li class="prescribe"> Lonart Ds </li>
+   <li id="name">Greg Fibs</li>
+   <li id='date'>surgeon</li>
+   <li id="time">fibsGee</li>
    </ul>
+
+
 
   
    </div>

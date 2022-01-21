@@ -25,39 +25,39 @@ const view_patients = () => {
    <div class="col">
 
    <ul class="prescription d-flex">
-   <li>doctor</li>
-   <li>patient</li>
-   <li>disease</li>
-   <li>allergy</li>
-   <li>prescription</li>
+   <li>Patient name</li>
+   <li>gender</li>
+   <li>phone no.</li>
+   <li>username</li>
   
    </ul>
 
    <ul class="prescription d-flex">
    <li id="name">Jonas Dubbie</li>
-   <li id='date'>09/07/2021</li>
-   <li id="time">9:30</li>
-   <li id="disease">Malaria & Typhoid</li>
-   <li class="allergy"> Nii </li>
-   <li class="prescribe"> Lonart Ds </li>
+   <li id='gender'>male</li>
+   <li id="phone">09068900985</li>
+   <li id="username">jonadub</li>
    </ul>
 
    <ul class="prescription d-flex">
    <li id="name">Jonas Dubbie</li>
-   <li id='date'>09/07/2021</li>
-   <li id="time">9:30</li>
-   <li id="disease">Malaria & Typhoid</li>
-   <li class="allergy"> Nii </li>
-   <li class="prescribe"> Lonart Ds </li>
+   <li id='gender'>male</li>
+   <li id="phone">09068900985</li>
+   <li id="username">jonadub</li>
    </ul>
 
    <ul class="prescription d-flex">
    <li id="name">Jonas Dubbie</li>
-   <li id='date'>09/07/2021</li>
-   <li id="time">9:30</li>
-   <li id="disease">Malaria & Typhoid</li>
-   <li class="allergy"> Nii </li>
-   <li class="prescribe"> Lonart Ds </li>
+   <li id='gender'>male</li>
+   <li id="phone">09068900985</li>
+   <li id="username">jonadub</li>
+   </ul>
+
+   <ul class="prescription d-flex">
+   <li id="name">Jonas Dubbie</li>
+   <li id='gender'>male</li>
+   <li id="phone">09068900985</li>
+   <li id="username">jonadub</li>
    </ul>
 
   

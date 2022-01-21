@@ -29,17 +29,17 @@ const bookApp = () => {
 
             <form class="mt-5" action="#">
             <div class="my-lg-5 my-3 row flex-wrap justify-content-between">
-            <label for="name" class="col-lg-4 col-12 col-form-label" style="font-weight:500;">name</label>
+            <label for="name" class="col-lg-4 col-12 col-form-label" style="font-weight:500;">doctor name</label>
              <div class="col-12 col-lg-8">
              <input type="text" class="w-100" style="background-color:#FCECEF80;border: none;" id="patient-name">
              </div>
          </div>
-            <div class="my-lg-5 my-3 row flex-wrap justify-content-between">
-            <label for="doctor" class="col-lg-4 col-12 col-form-label" style="font-weight:500;">doctor</label>
-             <div class="col-12 col-lg-8">
-             <input type="text" class="w-100" style="background-color:#FCECEF80;border: none;" id="doctor-name">
-             </div>
-         </div>
+             <div class="my-lg-5 my-3 row flex-wrap justify-content-between">
+             <label for="doctor" class="col-lg-4 col-12 col-form-label" style="font-weight:500;">doctor</label>
+              <div class="col-12 col-lg-8">
+              <input type="text" class="w-100" style="background-color:#FCECEF80;border: none;" id="doctor-name">
+              </div>
+          </div>
          
          <div class="my-lg-5 my-3 row flex-wrap justify-content-between">
            <label for="specialization" class="col-lg-4 col-12 col-form-label" style="font-weight:500;">Specialization</label>
@@ -62,14 +62,14 @@ const bookApp = () => {
      <div class="my-lg-5 my-3 row flex-wrap justify-content-between">
      <label for="appointment-date" class="col-lg-4 col-12 col-form-label" style="font-weight:500;">appointment date</label>
       <div class="col-12 col-lg-8">
-      <input type="text" class="w-100" style="background-color:#FCECEF80;border: none;" id="appointment-date">
+      <input type="date" class="w-100" style="background-color:#FCECEF80;border: none;" id="appointment-date">
       </div>
   </div>
 
   <div class="my-lg-5 my-3 row flex-wrap justify-content-between">
   <label for="appointment-time" class="col-lg-4 col-12 col-form-label" style="font-weight:500;">appointment time</label>
    <div class="col-12 col-lg-8">
-   <input type="text" class="w-100" style="background-color:#FCECEF80;border: none;" id="appointment-time">
+   <input type="time" class="w-100" style="background-color:#FCECEF80;border: none;" id="appointment-time">
    </div>
 </div>
 

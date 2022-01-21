@@ -1,17 +1,18 @@
-const dashboard = document.querySelectorAll("#dashboard")
+ export const dashboard = document.querySelectorAll("#dashboard")
 
 
-for (let i = 0; i < dashboard.length; i++) {
-    dashboard[i].addEventListener("click", e => {
-        e.preventDefault()
-        dashDisplay()
-            // sideNav.style.width = "0px"
-            // main.style.marginLeft = "0px"
-    })
-}
+ for (let i = 0; i < dashboard.length; i++) {
+     dashboard[i].addEventListener("click", e => {
+         e.preventDefault()
+         dashDisplay()
+             // sideNav.style.width = "0px"
+             // main.style.marginLeft = "0px"
+     })
+ }
 
-export const dashDisplay = () => {
-    patientDetails.innerHTML = `
+
+ export const dashDisplay = () => {
+     patientDetails.innerHTML = `
     <section class="container p-md-5">
                 <div class="d-flex flex-wrap justify-content-center">
     
@@ -65,4 +66,4 @@ export const dashDisplay = () => {
                 </div>
             </section>
     `
-}
+ }

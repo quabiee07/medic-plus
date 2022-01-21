@@ -1,16 +1,16 @@
-const prescription = document.querySelectorAll("#prescription")
-for (let i = 0; i < prescription.length; i++) {
-    prescription[i].addEventListener("click", e => {
-        e.preventDefault()
+ export const prescription = document.querySelectorAll("#prescription")
+ for (let i = 0; i < prescription.length; i++) {
+     prescription[i].addEventListener("click", e => {
+         e.preventDefault()
 
-        prescribe()
-            // sideNav.style.width = "0px"
-            // main.style.marginLeft = "0px"
-    })
-}
+         prescribe()
+             // sideNav.style.width = "0px"
+             // main.style.marginLeft = "0px"
+     })
+ }
 
-const prescribe = () => {
-    return patientDetails.innerHTML = `
+ const prescribe = () => {
+     return patientDetails.innerHTML = `
 <section class="container p-md-5">
 <div class="d-flex flex-wrap justify-content-center">
 
@@ -65,4 +65,4 @@ const prescribe = () => {
  
 </section>
 `
-}
+ }

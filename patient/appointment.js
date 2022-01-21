@@ -1,5 +1,5 @@
  import { getAllpatients } from "./patient.js"
- const appointment = document.querySelectorAll("#appointment")
+ export const appointment = document.querySelectorAll("#appointment")
  for (let i = 0; i < appointment.length; i++) {
      appointment[i].addEventListener("click", e => {
          e.preventDefault()

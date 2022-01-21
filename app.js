@@ -1,4 +1,8 @@
 import { closeNav, openNav } from "./patient/patient.js"
+import { dashboard } from "./admin/dashboard.js"
+import { bookAppointment } from "./patient/book-app.js"
+import { prescription } from "./patient/prescription.js"
+import { appointment } from "./patient/appointment.js"
 const toggle = document.querySelector(".navbar-toggler")
 const close = document.querySelector("#close-btn")
 const sideNav = document.querySelector(".side-navigation")
@@ -61,39 +65,62 @@ toggle.addEventListener('click', e => {
 
 
 for (let i = 0; i < dashboard.length; i++) {
-    dashboard[i].addEventListener("click", e => {
-        e.preventDefault()
-        var x = window.matchMedia("(max-width: 768px)")
-        myFunction2(x)
+    if (dashboard[i] && bookAppointment[i] && dashboard[i] && prescription[i]) {
+        dashboard[i].addEventListener("click", e => {
+            e.preventDefault()
+            var x = window.matchMedia("(max-width: 768px)")
+            myFunction2(x)
+
             // sideNav.style.width = "0px"
             // main.style.marginLeft = "0px"
-    })
+        })
 
-    bookAppointment[i].addEventListener("click", e => {
+        bookAppointment[i].addEventListener("click", e => {
 
-        var x = window.matchMedia("(max-width: 768px)")
-        myFunction2(x)
+            var x = window.matchMedia("(max-width: 768px)")
+            myFunction2(x)
+                // sideNav.style.width = "0px"
+                // main.style.marginLeft = "0px"
+        })
+
+
+        prescription[i].addEventListener("click", e => {
+            e.preventDefault()
+
+            var x = window.matchMedia("(max-width: 768px)")
+            myFunction2(x)
+                // sideNav.style.width = "0px"
+                // main.style.marginLeft = "0px"
+        })
+        appointment[i].addEventListener("click", e => {
+            e.preventDefault()
+
+            var x = window.matchMedia("(max-width: 768px)")
+            myFunction2(x)
+                //  sideNav.style.width = "0px"
+                //  main.style.marginLeft = "0px"
+        })
+    } else if (dashboard) {
+        dashboard[i].addEventListener("click", e => {
+            e.preventDefault()
+            var x = window.matchMedia("(max-width: 768px)")
+            myFunction2(x)
+
             // sideNav.style.width = "0px"
             // main.style.marginLeft = "0px"
-    })
+        })
 
+    } else if (adminDashboard[i]) {
+        adminDashboard[i].addEventListener("click", e => {
+            e.preventDefault()
+            var x = window.matchMedia("(max-width: 768px)")
+            myFunction2(x)
 
-    prescription[i].addEventListener("click", e => {
-        e.preventDefault()
-
-        var x = window.matchMedia("(max-width: 768px)")
-        myFunction2(x)
             // sideNav.style.width = "0px"
             // main.style.marginLeft = "0px"
-    })
-    appointment[i].addEventListener("click", e => {
-        e.preventDefault()
+        })
+    }
 
-        var x = window.matchMedia("(max-width: 768px)")
-        myFunction2(x)
-            //  sideNav.style.width = "0px"
-            //  main.style.marginLeft = "0px"
-    })
 }
 
 

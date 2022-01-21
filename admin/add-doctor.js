@@ -1,16 +1,17 @@
-import { creatingUser } from "./firebase.js"
-export const addPatient = document.querySelectorAll("#add-patient")
+export const addDoctor = document.querySelectorAll("#add-doctor")
 
-console.log(addPatient)
-for (let i = 0; i < addPatient.length; i++) {
-    addPatient[i].addEventListener("click", e => {
+
+for (let i = 0; i < addDoctor.length; i++) {
+    addDoctor[i].addEventListener("click", e => {
         e.preventDefault()
-        addPatientForm()
+        addDoctorForm()
             // sideNav.style.width = "0px"
             // main.style.marginLeft = "0px"
     })
 }
-const addPatientForm = () => {
+
+
+const addDoctorForm = () => {
     console.log("hello")
     patientDetails.innerHTML = `
 <section class="container  ">
@@ -25,33 +26,33 @@ const addPatientForm = () => {
   </div>
         <div class="col-12 col-lg-10  p-4 mt-5 bg-light">
             <h4 class="fw-bold text-center" style=" text-transform:capitalize; color: #333D7B;">
-        patient form
+        doctor form
             </h4>
 
         <form class="mt-5" action="#">
         <div class="my-lg-5 my-3 row flex-wrap justify-content-between">
-        <label for="name" class="col-lg-4 col-12 col-form-label" style="font-weight:500;">name</label>
+        <label for="doctor-name" class="col-lg-4 col-12 col-form-label" style="font-weight:500;">Doctor name</label>
          <div class="col-12 col-lg-8">
-         <input type="text" class="w-100" style="background-color:#FCECEF80;border: none;" id="patient-name">
+         <input type="text" class="w-100" style="background-color:#FCECEF80;border: none;" id="doctor-name">
          </div>
      </div>
-        <div class="my-lg-5 my-3 row flex-wrap justify-content-between">
-        <label for="gender" class="col-lg-4 col-12 col-form-label" style="font-weight:500;">gender</label>
-         <div class="col-12 col-lg-8">
-         <input type="text" class="w-100" style="background-color:#FCECEF80;border: none;" id="gender">
-         </div>
-     </div>
+    
 
-
-
-
-
- <div class="my-lg-5 my-3 row flex-wrap justify-content-between">
- <label for="phone" class="col-lg-4 col-12 col-form-label" style="font-weight:500;">phone</label>
-  <div class="col-12 col-lg-8">
-  <input type="text" class="w-100" style="background-color:#FCECEF80;border: none;" id="phone">
-  </div>
-</div>
+     <div class="my-lg-5 my-3 row flex-wrap justify-content-between">
+           <label for="specialization" class="col-lg-4 col-12 col-form-label" style="font-weight:500;">Specialization</label>
+            <div class="col-12 col-lg-8">
+            <select type="text" class="w-100" style="background-color:#FCECEF80;border: none;" id="specialization">
+       
+            <option value="" id="0"></option>
+            <option value="surgeon" id="1">surgeon</option>
+            <option value="pharmacist" id="2">pharmacist</option>
+            <option value="neurosurgeon" id="3">neurosurgeon</option>
+            <option value="dentist" id="4">dentist</option>
+            <option value="gynaecologist" id="5">gynaecologist</option>
+            <option value="optician" id="6">optician</option>
+            </select>
+            </div>
+        </div>
 
 <div class="my-lg-5 my-3 row flex-wrap justify-content-between">
 <label for="username" class="col-lg-4 col-12 col-form-label" style="font-weight:500;">username</label>
@@ -67,12 +68,12 @@ const addPatientForm = () => {
 </div>
 </div>
 
-<div class="d-flex justify-content-center col-12 mt-5"> <button class="btn btn-lg m-auto  text-center btn-success" style="background-color:#333D7B; border-radius: 10px;" id="addPatient">add patient</button></div>
+<div class="d-flex justify-content-center col-12 mt-5"> <button class="btn btn-lg m-auto  text-center btn-success" style="background-color:#333D7B; border-radius: 10px;" id="addDoctor">add doctor</button></div>
             </form>
         </div>
 
     </div>
 </section>
 `
-        // creatingUser
+
 }

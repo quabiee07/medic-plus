@@ -1,4 +1,4 @@
-const dashboard = document.querySelectorAll("#dashboard")
+export const dashboard = document.querySelectorAll("#dashboard")
 
 
 for (let i = 0; i < dashboard.length; i++) {
@@ -9,25 +9,24 @@ for (let i = 0; i < dashboard.length; i++) {
             // main.style.marginLeft = "0px"
     })
 }
-
 export const dashDisplay = () => {
     patientDetails.innerHTML = `
     <section class="container mt-5">
                 <div class="d-flex flex-wrap justify-content-center">
-    
-        
-    
+
+
+
                     <div class="col-12 d-lg-flex  flex-wrap  mt-5  justify-content-between">
-                    
-    
+
+
                         <div class="col col-md-6 col-lg-4 px-3  m-auto m-lg-0 ">
                             <div class=" card text-light mt-4 mt-lg-0 m-auto  m-lg-0" style="height: 250px;  background-color: #333D7B;font-size:24px">
                                 <div class="card-body h4 d-flex flex-wrap">
                                     <div class="card-img col-12"><img src="../images/appointment.png" alt=""></div>
-    
+
                                     <p class="align-self-end h4 fw-bold col-12 ">Appointments</p>
                                 </div>
-    
+
                             </div>
                             <div class="text-center text-lg-start"> <a href="#" class=" text-center text-decoration-underline text-capitalize" style="color: #9CC2D5;">appointment</a></div>
                         </div>
@@ -36,10 +35,10 @@ export const dashDisplay = () => {
                             <div class=" card text-light mt-4 mt-lg-0 m-auto  m-lg-0" style="height: 250px;  background-color: #333D7B;font-size:24px">
                                 <div class="card-body h4 d-flex flex-wrap">
                                     <div class="card-img col-12"><img src="../images/appointment.png" alt=""></div>
-    
+
                                     <p class="align-self-end h4 fw-bold col-12 ">Appointments</p>
                                 </div>
-    
+
                             </div>
                             <div class="text-center text-lg-start"> <a href="#" class=" text-center text-decoration-underline text-capitalize" style="color: #9CC2D5;">appointment</a></div>
                         </div>
@@ -48,11 +47,11 @@ export const dashDisplay = () => {
                             <div class=" card text-light mt-4 mt-lg-0 m-auto  m-lg-0" style="height: 250px;  background-color: #333D7B;font-size:24px">
                                 <div class="card-body h4 d-flex flex-wrap">
                                     <div class="card-img col-12"><img src="../images/appointment.png" alt=""></div>
-    
+
                                   <p class="align-self-end h4 fw-bold col-12 ">Appointments</p>
                                 </div>
-        
-    
+
+
                             </div>
                             <div class="text-center text-lg-start"> <a href="#" class=" text-center text-decoration-underline text-capitalize" style="color: #9CC2D5;">appointment</a></div>
                         </div>
@@ -84,8 +83,8 @@ export const dashDisplay = () => {
 <div class="text-center text-lg-start"> <a href="#" class=" text-center text-decoration-underline text-capitalize" style="color: #9CC2D5;">view prescription</a></div>
 </div>
 </div>
-                       
-    
+
+
                     </div>
                 </div>
             </section>

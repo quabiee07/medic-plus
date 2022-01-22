@@ -1,5 +1,6 @@
-import { signoutUser } from "../admin/firebase.js";
 import { dashDisplay } from "./dashboard.js"
+// 
+import { signoutUser } from "../admin/firebase.js";
 const patientDetails = document.querySelector("#patientDetails")
 const sideNav = document.querySelector(".side-navigation")
 const logout = document.querySelector("#logout");
@@ -27,21 +28,22 @@ export const getAllpatients = async() => {
 
 
 export const addPatients = async(info) => {
-    const res = await fetch("https://medic-db-v1.herokuapp.com/patients", {
-        method: "POST",
-        headers: {
-            'Content-type': "application/json"
-        },
-        body: JSON.stringify(info)
-    });
-    const data = await res.json()
+        const res = await fetch("https://medic-db-v1.herokuapp.com/patients", {
+            method: "POST",
+            headers: {
+                'Content-type': "application/json"
+            },
+            body: JSON.stringify(info)
+        });
+        const data = await res.json()
 
-    return data
-}
-
+        return data
+    }
+    // console.log(logout)
 logout.addEventListener("click", e => {
     signoutUser()
 })
+
 
 
 // async function fetchPatients() {

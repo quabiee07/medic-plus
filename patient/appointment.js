@@ -1,6 +1,5 @@
 import { currentUser } from "../admin/firebase.js"
-import { getAllpatients }
-from "./patient.js"
+import { getAllpatients } from "./patient.js"
 export const appointment = document.querySelectorAll("#appointment")
 for (let i = 0; i < appointment.length; i++) {
     appointment[i].addEventListener("click", e => {

@@ -1,5 +1,6 @@
 import { closeNav, openNav } from "./patient/patient.js"
-import { dashboard } from "./admin/dashboard.js"
+// import { dashboard } from "./patient/dashboard.js"
+import { dashboard } from "./patient/dashboard.js"
 import { bookAppointment } from "./patient/book-app.js"
 import { prescription } from "./patient/prescription.js"
 import { appointment } from "./patient/appointment.js"

@@ -5,6 +5,7 @@ for (let i = 0; i < dashboard.length; i++) {
     dashboard[i].addEventListener("click", e => {
         e.preventDefault()
         dashDisplay()
+        console.log("hello")
             // sideNav.style.width = "0px"
             // main.style.marginLeft = "0px"
     })

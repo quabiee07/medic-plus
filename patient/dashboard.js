@@ -7,8 +7,9 @@ for (let i = 0; i < dashboard.length; i++) {
     dashboard[i].addEventListener("click", e => {
         e.preventDefault()
         dashDisplay()
-            // sideNav.style.width = "0px"
-            // main.style.marginLeft = "0px"
+
+        // sideNav.style.width = "0px"
+        // main.style.marginLeft = "0px"
     })
 }
 
@@ -69,4 +70,5 @@ export const dashDisplay = () => {
             </section>
     `
     currentUser()
+
 }

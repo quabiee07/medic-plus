@@ -34,12 +34,19 @@ export const currentUser = () => {
                 // ...
                 console.log(user.uid);
                 getPatientDetails(user.uid)
+
+                document.querySelector("#home").style.display = "none"
+                document.querySelector("#logout").style.display = "block"
+
             } else {
                 // User is signed out
                 // ...
-                const patientDetails = document.querySelector("#patientDetails")
+                // const patientDetails = document.querySelector("#patientDetails")
                 if (patientDetails) {
                     patientDetails.innerHTML = ` <h2 class="text-center">you are not logged in please go back and login<h2>`
+                    document.querySelector("#home").style.display = "block"
+                    document.querySelector("#logout").style.display = "none"
+
                 }
 
             }

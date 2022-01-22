@@ -5,3 +5,7 @@
 #createEntry {
     text-transform: capitalize;
 }
+
+.hover-card:hover {
+    background-color: green
+}

@@ -25,39 +25,54 @@ const appointments = () => {
    <div class="col">
 
    <ul class="prescription d-flex">
-   <li>doctor</li>
    <li>patient</li>
-   <li>disease</li>
-   <li>allergy</li>
-   <li>prescription</li>
+   <li>gender</li>
+   <li>phone</li>
+   <li>doctor</li>
+   <li>date</li>
+   <li>time</li>
+   <li>status</li>
   
    </ul>
 
    <ul class="prescription d-flex">
    <li id="name">Jonas Dubbie</li>
+   <li id="gender">male</li>
+   <li id="phone">090789609876</li>
+   <li id="doc-name">wilis wills</li>
    <li id='date'>09/07/2021</li>
    <li id="time">9:30</li>
-   <li id="disease">Malaria & Typhoid</li>
-   <li class="allergy"> Nii </li>
-   <li class="prescribe"> Lonart Ds </li>
+   <li id="status">Active</li>
    </ul>
 
    <ul class="prescription d-flex">
    <li id="name">Jonas Dubbie</li>
+   <li id="gender">male</li>
+   <li id="phone">090789609876</li>
+   <li id="doc-name">wilis wills</li>
    <li id='date'>09/07/2021</li>
    <li id="time">9:30</li>
-   <li id="disease">Malaria & Typhoid</li>
-   <li class="allergy"> Nii </li>
-   <li class="prescribe"> Lonart Ds </li>
+   <li id="status">Active</li>  
    </ul>
 
    <ul class="prescription d-flex">
    <li id="name">Jonas Dubbie</li>
+   <li id="gender">male</li>
+   <li id="phone">090789609876</li>
+   <li id="doc-name">wilis wills</li>
    <li id='date'>09/07/2021</li>
    <li id="time">9:30</li>
-   <li id="disease">Malaria & Typhoid</li>
-   <li class="allergy"> Nii </li>
-   <li class="prescribe"> Lonart Ds </li>
+   <li id="status">Cancelled</li>  
+   </ul>
+
+   <ul class="prescription d-flex">
+   <li id="name">Jonas Dubbie</li>
+   <li id="gender">male</li>
+   <li id="phone">090789609876</li>
+   <li id="doc-name">wilis wills</li>
+   <li id='date'>09/07/2021</li>
+   <li id="time">9:30</li>
+   <li id="status">Cancelled</li>  
    </ul>
 
   

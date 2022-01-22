@@ -118,7 +118,7 @@ a {
     /* text-align: center; */
     flex: 16.6%;
     text-align: center;
-    font-size: 15px;
+    font-size: 12px;
 }
 
 @media screen and (max-width:992px) {
@@ -164,6 +164,7 @@ a {
     }
     .appointment li {
         font-size: 12px;
+        /* font-weight: bold; */
     }
 }
 
@@ -198,12 +199,6 @@ button[type="submit"] {
 
 #greeting {
     font-weight: 900;
-}
-
-#appointment-date {
-    background-image: url("images/calender.png");
-    background-repeat: no-repeat;
-    background-position: 95%;
 }
 
 input[type=radio] {

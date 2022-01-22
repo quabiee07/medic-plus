@@ -1,5 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-app.js";
+import { getDatabase, ref, set, child, update, remove, get, onValue } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-database.js";
+// import { firebase } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-firestore.js";
 
 
 import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-auth.js";
@@ -38,14 +40,15 @@ const auth = getAuth();
 // });
 
 
-
-export const creatingUser = (email, password) => {
-    createUserWithEmailAndPassword(auth, "eugenepyo@gmail.com", "password")
+// authentication
+export const creatingUser = (email, password, name, contact, gender, username) => {
+    createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
             // ...
             console.log(user)
+            patientsProfile(email, password, name, contact, gender, username, user.uid)
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -55,4 +58,34 @@ export const creatingUser = (email, password) => {
         });
 }
 
-creatingUser()
+
+// storing all patient details
+const patientsProfile = (email, password, name, contact, gender, username, userID) => {
+    set(ref(db, 'patients' + userID), {
+            email,
+            password,
+            name,
+            contact,
+            gender,
+            username,
+            userID
+        }).then(() => alert("data saved"))
+        .catch(e => {
+            console.log(e.message)
+        })
+}
+
+// getting all patient details
+const db = getDatabase()
+const getPatientDetails = () => {
+    const dbRef = ref(db);
+    get(child(dbRef, `patients`)).then((snapshot) => {
+        if (snapshot.exists()) {
+            console.log(snapshot.val());
+        } else {
+            console.log("No data available");
+        }
+    }).catch((error) => {
+        console.error(error);
+    });
+}

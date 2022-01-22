@@ -1,7 +1,7 @@
 import { creatingUser } from "./firebase.js"
 export const addPatient = document.querySelectorAll("#add-patient")
 
-console.log(addPatient)
+// console.log(addPatient)
 for (let i = 0; i < addPatient.length; i++) {
     addPatient[i].addEventListener("click", e => {
         e.preventDefault()
@@ -54,6 +54,13 @@ const addPatientForm = () => {
 </div>
 
 <div class="my-lg-5 my-3 row flex-wrap justify-content-between">
+<label for="email" class="col-lg-4 col-12 col-form-label" style="font-weight:500;">email</label>
+ <div class="col-12 col-lg-8">
+ <input type="email" class="w-100" style="background-color:#FCECEF80;border: none;" id="email">
+ </div>
+</div>
+
+<div class="my-lg-5 my-3 row flex-wrap justify-content-between">
 <label for="username" class="col-lg-4 col-12 col-form-label" style="font-weight:500;">username</label>
 <div class="col-12 col-lg-8">
 <input type="text" class="w-100" style="background-color:#FCECEF80;border: none;" id="username">
@@ -74,5 +81,19 @@ const addPatientForm = () => {
     </div>
 </section>
 `
-        // creatingUser
+    const patient_name = document.querySelector("#patient-name")
+    const patient_password = document.querySelector("#password")
+    const patient_gender = document.querySelector("#gender")
+    const patient_username = document.querySelector("#username")
+    const patient_email = document.querySelector("#email")
+    const addPatientBtn = document.querySelector("#addPatient")
+    const patient_contact = document.querySelector("#phone")
+
+    addPatientBtn.addEventListener("click",
+        e => {
+            e.preventDefault()
+            console.log(patient_name.value, patient_contact.value, patient_email.value, patient_gender.value, patient_password.value, patient_username.value)
+            creatingUser(patient_email.value, patient_password.value, patient_name.value, patient_contact.value, patient_gender.value, patient_username.value)
+
+        })
 }

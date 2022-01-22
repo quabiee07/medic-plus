@@ -1,0 +1,13 @@
+{
+    "patients": [{
+        "name": "john dubbie",
+        "sickness": "malaria",
+        "prescription": "none",
+        "doctor": "none"
+    }, {
+        "name": "john dubbie",
+        "sickness": "malaria",
+        "prescription": "none",
+        "doctor": "none"
+    }]
+}

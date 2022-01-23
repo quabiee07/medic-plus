@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-app.js";
-import { getDatabase, ref, set, child, update, remove, get, onValue } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-database.js";
+import { getDatabase, ref, push, set, child, update, remove, get, onValue } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-database.js";
 // import { firebase } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-firestore.js";
 import { errHandler } from "../login_pages/input_handler.js";
 
@@ -33,9 +33,10 @@ const currentUser = () => {
                 const uid = user.uid;
                 // ...
                 console.log(user.uid);
-                getPatientDetails(user.uid)
-                getDoctorDetails(user.uid)
-
+                // getPatientDetails(user.uid)
+                // getDoctorDetails(user.uid)
+                gettingCurrentDoctor(user.uid)
+                gettingCurrentPatient(user.uid)
                 document.querySelector("#home").style.display = "none"
                 document.querySelector("#logout").style.display = "block"
 
@@ -97,8 +98,10 @@ const creatingDoc = (name, specialization, email, password, username) => {
 
 // storing all patient details
 const patientsProfile = (email, password, name, contact, gender, username, userID) => {
-        set(ref(db, 'patients' + userID), {
-                email,
+        const PatientRef = ref(db, "Patients")
+        const newPatients = push(PatientRef)
+        set(newPatients, {
+                name,
                 password,
                 name,
                 contact,
@@ -112,7 +115,9 @@ const patientsProfile = (email, password, name, contact, gender, username, userI
     }
     // storing all Doctors details
 const doctorsProfile = (name, specialization, email, password, username, userID) => {
-    set(ref(db, 'Doctors' + userID), {
+    const DoctorRef = ref(db, "Doctors")
+    const newDoctors = push(DoctorRef)
+    set(newDoctors, {
             name,
             specialization,
             email,
@@ -127,40 +132,55 @@ const doctorsProfile = (name, specialization, email, password, username, userID)
 
 // getting all patient details
 const db = getDatabase()
-const getPatientDetails = (id) => {
-        const dbRef = ref(db);
-        get(child(dbRef, `patients${id}`)).then((snapshot) => {
-            if (snapshot.exists()) {
-                const helloName = document.querySelector("#helloName");
-                helloName.innerHTML = snapshot.val() ? snapshot.val().name : "";
-            } else {
-                console.log("No data available");
-            }
-            // return (snapshot.val().name);
-        }).catch((error) => {
-            console.error(error.message);
-        });
+    // const getPatientDetails = (id) => {
+    //     const dbRef = ref(db);
+    //     get(child(dbRef, `patients${id}`)).then((snapshot) => {
+    //         if (snapshot.exists()) {
+    //             const helloName = document.querySelector("#helloName");
+    //             helloName.innerHTML = snapshot.val() ? snapshot.val().name : "";
+    //         } else {
+    //             console.log("No data available");
+    //         }
+    //         // return (snapshot.val().name);
+    //     }).catch((error) => {
+    //         console.error(error.message);
+    //     });
 
-    }
-    // get all doctors 
-const getDoctorDetails = (id) => {
-        const dbRef = ref(db);
-        get(child(dbRef, `Doctors${id}`)).then((snapshot) => {
-            if (snapshot.exists()) {
-                const helloName = document.querySelector("#helloName");
+// }
+const dbRef = ref(db);
 
-                helloName.innerHTML = snapshot.val() ? snapshot.val().name : "";
+// get(child(dbRef, ``)).then((snapshot) => {
+//     if (snapshot.exists()) {
+//         const helloName = document.querySelector("#helloName");
+//         helloName.innerHTML = snapshot.val() ? snapshot.val().name : "";
+//     } else {
+//         console.log("No data available");
+//     }
+//     // return (snapshot.val().name);
+// }).catch((error) => {
+//     console.error(error.message);
+// });
 
-            } else {
-                console.log("No data available");
-            }
-            // return (snapshot.val().name);
-        }).catch((error) => {
-            // console.error(error.message);
-        });
 
-    }
-    // sign in users
+// get all doctors 
+// const getDoctorDetails = (id) => {
+//         const dbRef = ref(db);
+//         get(child(dbRef, `Doctors${id}`)).then((snapshot) => {
+//             if (snapshot.exists()) {
+//                 const helloName = document.querySelector("#helloName");
+
+//                 helloName.innerHTML = snapshot.val() ? snapshot.val().name : "";
+
+//             } else {
+//                 console.log("No data available");
+//             }
+//             // return (snapshot.val().name);
+//         }).catch((error) => {
+//             // console.error(error.message);
+//         });
+
+//     }
+// sign in users
 const signInUser = (email, password, redirect) => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
@@ -188,10 +208,118 @@ const signoutUser = () => {
     });
 }
 
+const getDoctors = (data) => {
+    get(child(dbRef, data)).then((snapshot) => {
+        if (snapshot.exists()) {
+            const doctors = document.querySelector(".doctors")
+            console.log(snapshot.val())
+            for (let x in snapshot.val()) {
+                console.log(snapshot.val()[x])
+                doctors.innerHTML += `
+                <ul class="prescription d-flex">
+                <li id="name">${snapshot.val()[x].name}</li>
+                <li id='specialization'>${snapshot.val()[x].specialization}</li>
+                <li id="username">${snapshot.val()[x].username}</li>
+                </ul>
+                `
+            }
+
+            // const helloName = document.querySelector("#helloName");
+            // helloName.innerHTML = snapshot.val() ? snapshot.val().name : "";
+        } else {
+            console.log("No data available");
+        }
+        // return (snapshot.val().name);
+    }).catch((error) => {
+        console.error(error.message);
+    });
+}
+
+const getPatients = (data) => {
+    get(child(dbRef, data)).then((snapshot) => {
+        if (snapshot.exists()) {
+            const patients = document.querySelector(".patients")
+            console.log(snapshot.val())
+            for (let x in snapshot.val()) {
+                console.log(snapshot.val()[x])
+                patients.innerHTML += `
+                <ul class="prescription d-flex">
+                <li id="name">${snapshot.val()[x].name}</li>
+                <li id='gender'>${snapshot.val()[x].gender}</li>
+                <li id="phone">${snapshot.val()[x].phone}</li>
+                <li id="username">${snapshot.val()[x].username}</li>
+                </ul>
+                `
+            }
+
+            const helloName = document.querySelector("#helloName");
+            helloName.innerHTML = snapshot.val() ? snapshot.val().name : "";
+        } else {
+            console.log("No data available");
+        }
+        // return (snapshot.val().name);
+    }).catch((error) => {
+        console.error(error.message);
+    });
+}
+
+
+const gettingCurrentDoctor = (userID) => {
+    get(child(dbRef, "Doctors")).then((snapshot) => {
+        if (snapshot.exists()) {
+            // if (userID == = ) {
+
+            // }
+            for (let x in snapshot.val()) {
+                if (snapshot.val()[x].userID === userID) {
+                    console.log(snapshot.val()[x].name);
+                    // const helloName = document.querySelector("#helloName");
+                    helloName.innerHTML = snapshot.val()[x].name;
+                }
+            }
+            console.log()
+
+        } else {
+            console.log("No data available");
+        }
+        // return (snapshot.val().name);
+    }).catch((error) => {
+        console.error(error.message);
+    });
+}
+
+
+const gettingCurrentPatient = (userID) => {
+    get(child(dbRef, "Patients")).then((snapshot) => {
+        if (snapshot.exists()) {
+            // if (userID == = ) {
+
+            // }
+            for (let x in snapshot.val()) {
+                if (snapshot.val()[x].userID === userID) {
+                    console.log(snapshot.val()[x].name);
+                    // const helloName = document.querySelector("#helloName");
+                    helloName.innerHTML = snapshot.val()[x].name;
+                }
+            }
+            console.log()
+
+        } else {
+            console.log("No data available");
+        }
+        // return (snapshot.val().name);
+    }).catch((error) => {
+        console.error(error.message);
+    });
+}
+
+
 export {
     currentUser,
     signoutUser,
     signInUser,
     creatingUser,
-    creatingDoc
+    creatingDoc,
+    getDoctors,
+    getPatients
 }

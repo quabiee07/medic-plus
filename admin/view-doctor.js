@@ -1,3 +1,5 @@
+import { getDoctors } from "./firebase.js"
+
 export const view_doctor = document.querySelectorAll("#view-doctor")
 for (let i = 0; i < view_doctor.length; i++) {
     view_doctor[i].addEventListener("click", e => {
@@ -10,7 +12,7 @@ for (let i = 0; i < view_doctor.length; i++) {
 }
 
 const view_doctors = () => {
-    return patientDetails.innerHTML = `
+    patientDetails.innerHTML = `
 <section class="container p-md-5">
 <div class="d-flex flex-wrap justify-content-center">
 
@@ -22,7 +24,7 @@ const view_doctors = () => {
 
 </div>
 
-   <div class="col">
+   <div class="col doctors">
 
    <ul class="prescription d-flex">
    <li>doctor</li>
@@ -31,24 +33,12 @@ const view_doctors = () => {
   
    </ul>
 
-   <ul class="prescription d-flex">
-   <li id="name">Jonas Dubbie</li>
-   <li id='date'>Dentist</li>
-   <li id="time">jonasdub</li>
-   </ul>
+  
 
-   <ul class="prescription d-flex">
-   <li id="name">Farma Damas</li>
-   <li id='date'>pharmacist</li>
-   <li id="time">fardam</li>
-   </ul>
+ 
 
-   <ul class="prescription d-flex">
-   <li id="name">Greg Fibs</li>
-   <li id='date'>surgeon</li>
-   <li id="time">fibsGee</li>
-   </ul>
-
+ 
+  
 
 
   
@@ -56,4 +46,6 @@ const view_doctors = () => {
 
 </section>
 `
+
+    getDoctors("Doctors")
 }

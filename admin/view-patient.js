@@ -1,3 +1,5 @@
+import { getPatients } from "./firebase.js"
+
 export const view_patient = document.querySelectorAll("#view-patient")
 for (let i = 0; i < view_patient.length; i++) {
     view_patient[i].addEventListener("click", e => {
@@ -10,7 +12,7 @@ for (let i = 0; i < view_patient.length; i++) {
 }
 
 const view_patients = () => {
-    return patientDetails.innerHTML = `
+    patientDetails.innerHTML = `
 <section class="container p-md-5">
 <div class="d-flex flex-wrap justify-content-center">
 
@@ -22,7 +24,7 @@ const view_patients = () => {
 
 </div>
 
-   <div class="col">
+   <div class="col patients">
 
    <ul class="prescription d-flex">
    <li>Patient name</li>
@@ -32,37 +34,13 @@ const view_patients = () => {
   
    </ul>
 
-   <ul class="prescription d-flex">
-   <li id="name">Jonas Dubbie</li>
-   <li id='gender'>male</li>
-   <li id="phone">09068900985</li>
-   <li id="username">jonadub</li>
-   </ul>
 
-   <ul class="prescription d-flex">
-   <li id="name">Jonas Dubbie</li>
-   <li id='gender'>male</li>
-   <li id="phone">09068900985</li>
-   <li id="username">jonadub</li>
-   </ul>
-
-   <ul class="prescription d-flex">
-   <li id="name">Jonas Dubbie</li>
-   <li id='gender'>male</li>
-   <li id="phone">09068900985</li>
-   <li id="username">jonadub</li>
-   </ul>
-
-   <ul class="prescription d-flex">
-   <li id="name">Jonas Dubbie</li>
-   <li id='gender'>male</li>
-   <li id="phone">09068900985</li>
-   <li id="username">jonadub</li>
-   </ul>
 
   
    </div>
 
 </section>
 `
+
+    getPatients("Patients")
 }

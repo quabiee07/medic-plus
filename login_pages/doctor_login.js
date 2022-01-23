@@ -1,9 +1,11 @@
-import { errHandler } from "./input_handler.js"
+import { signInUser } from "../admin/firebase.js"
 const form = document.querySelector("form")
 
 form.addEventListener("submit", e => {
     const email = document.querySelector("#email").value
     const password = document.querySelector("#password").value
     e.preventDefault()
-    errHandler(email, password, "/doctor/doctor.html")
+    email && password ? signInUser(email, password, "../doctor/doctor.html") : swal({ title: "Blank fields", icon: "error", text: "fill blank fields" })
+
+    // errHandler(email, password, "/patient/patient.html")
 })

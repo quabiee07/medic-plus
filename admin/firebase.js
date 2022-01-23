@@ -25,7 +25,7 @@ const app = initializeApp(firebaseConfig);
 
 const auth = getAuth();
 
-export const currentUser = () => {
+const currentUser = () => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 // User is signed in, see docs for a list of available properties
@@ -34,6 +34,7 @@ export const currentUser = () => {
                 // ...
                 console.log(user.uid);
                 getPatientDetails(user.uid)
+                getDoctorDetails(user.uid)
 
                 document.querySelector("#home").style.display = "none"
                 document.querySelector("#logout").style.display = "block"
@@ -46,7 +47,7 @@ export const currentUser = () => {
                     patientDetails.innerHTML = ` <h2 class="text-center">you are not logged in please go back and login<h2>`
                     document.querySelector("#home").style.display = "block"
                     document.querySelector("#logout").style.display = "none"
-
+                    console.log(user)
                 }
 
             }
@@ -57,14 +58,32 @@ export const currentUser = () => {
 
 
 // authentication
-export const creatingUser = (email, password, name, contact, gender, username) => {
+// CREATING PATIENT
+const creatingUser = (email, password, name, contact, gender, username) => {
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                // ...
+                console.log(user)
+                patientsProfile(email, password, name, contact, gender, username, user.uid)
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;;
+                console.log(errorMessage)
+                    // ..
+            });
+    }
+    // CREATING DOCTOR
+const creatingDoc = (name, specialization, email, password, username) => {
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
             // ...
             console.log(user)
-            patientsProfile(email, password, name, contact, gender, username, user.uid)
+            doctorsProfile(name, specialization, email, password, username, user.uid)
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -75,14 +94,29 @@ export const creatingUser = (email, password, name, contact, gender, username) =
 }
 
 
+
 // storing all patient details
 const patientsProfile = (email, password, name, contact, gender, username, userID) => {
-    set(ref(db, 'patients' + userID), {
+        set(ref(db, 'patients' + userID), {
+                email,
+                password,
+                name,
+                contact,
+                gender,
+                username,
+                userID
+            }).then(() => alert("data saved"))
+            .catch(e => {
+                console.log(e.message)
+            })
+    }
+    // storing all Doctors details
+const doctorsProfile = (name, specialization, email, password, username, userID) => {
+    set(ref(db, 'Doctors' + userID), {
+            name,
+            specialization,
             email,
             password,
-            name,
-            contact,
-            gender,
             username,
             userID
         }).then(() => alert("data saved"))
@@ -94,22 +128,40 @@ const patientsProfile = (email, password, name, contact, gender, username, userI
 // getting all patient details
 const db = getDatabase()
 const getPatientDetails = (id) => {
-    const dbRef = ref(db);
-    get(child(dbRef, `patients${id}`)).then((snapshot) => {
-        if (snapshot.exists()) {
-            const helloName = document.querySelector("#helloName");
-            helloName.innerHTML = snapshot.val() ? snapshot.val().name : "";
-        } else {
-            console.log("No data available");
-        }
-        return (snapshot.val().name);
-    }).catch((error) => {
-        console.error(error.message);
-    });
+        const dbRef = ref(db);
+        get(child(dbRef, `patients${id}`)).then((snapshot) => {
+            if (snapshot.exists()) {
+                const helloName = document.querySelector("#helloName");
+                helloName.innerHTML = snapshot.val() ? snapshot.val().name : "";
+            } else {
+                console.log("No data available");
+            }
+            // return (snapshot.val().name);
+        }).catch((error) => {
+            console.error(error.message);
+        });
 
-}
+    }
+    // get all doctors 
+const getDoctorDetails = (id) => {
+        const dbRef = ref(db);
+        get(child(dbRef, `Doctors${id}`)).then((snapshot) => {
+            if (snapshot.exists()) {
+                const helloName = document.querySelector("#helloName");
 
-export const signInUser = (email, password, redirect) => {
+                helloName.innerHTML = snapshot.val() ? snapshot.val().name : "";
+
+            } else {
+                console.log("No data available");
+            }
+            // return (snapshot.val().name);
+        }).catch((error) => {
+            // console.error(error.message);
+        });
+
+    }
+    // sign in users
+const signInUser = (email, password, redirect) => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -125,7 +177,7 @@ export const signInUser = (email, password, redirect) => {
         });
 }
 
-export const signoutUser = () => {
+const signoutUser = () => {
 
     const auth = getAuth();
     signOut(auth).then(() => {
@@ -134,4 +186,12 @@ export const signoutUser = () => {
     }).catch((error) => {
         // An error happened.
     });
+}
+
+export {
+    currentUser,
+    signoutUser,
+    signInUser,
+    creatingUser,
+    creatingDoc
 }

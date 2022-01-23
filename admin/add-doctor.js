@@ -1,3 +1,4 @@
+import { creatingDoc } from "./firebase.js"
 export const addDoctor = document.querySelectorAll("#add-doctor")
 
 
@@ -54,6 +55,13 @@ const addDoctorForm = () => {
             </div>
         </div>
 
+        <div class="my-lg-5 my-3 row flex-wrap justify-content-between">
+        <label for="email" class="col-lg-4 col-12 col-form-label" style="font-weight:500;">email</label>
+        <div class="col-12 col-lg-8">
+        <input type="text" class="w-100" style="background-color:#FCECEF80;border: none;" id="email">
+        </div>
+        </div>
+
 <div class="my-lg-5 my-3 row flex-wrap justify-content-between">
 <label for="username" class="col-lg-4 col-12 col-form-label" style="font-weight:500;">username</label>
 <div class="col-12 col-lg-8">
@@ -75,5 +83,16 @@ const addDoctorForm = () => {
     </div>
 </section>
 `
+    const addDoctor = document.querySelector("#addDoctor")
+    const doc_name = document.querySelector("#doctor-name")
+    const specialization = document.querySelector("#specialization")
+    const password = document.querySelector("#password")
+    const username = document.querySelector("#username")
+    const email = document.querySelector("#email")
 
+    addDoctor.addEventListener("click", e => {
+        e.preventDefault()
+        console.log(doc_name.value, specialization.value, email.value, password.value, username.value);
+        creatingDoc(doc_name.value, specialization.value, email.value, password.value, username.value)
+    })
 }

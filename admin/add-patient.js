@@ -92,7 +92,7 @@ const addPatientForm = () => {
     addPatientBtn.addEventListener("click",
         e => {
             e.preventDefault()
-            console.log(patient_name.value, patient_contact.value, patient_email.value, patient_gender.value, patient_password.value, patient_username.value)
+                // console.log(patient_name.value, patient_contact.value, patient_email.value, patient_gender.value, patient_password.value, patient_username.value)
             creatingUser(patient_email.value, patient_password.value, patient_name.value, patient_contact.value, patient_gender.value, patient_username.value)
 
         })

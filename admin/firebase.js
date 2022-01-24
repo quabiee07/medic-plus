@@ -5,10 +5,10 @@ import { getDatabase, ref, push, set, child, update, remove, get, onValue } from
 import { errHandler } from "../login_pages/input_handler.js";
 
 import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-auth.js";
-
+// import { getAllpatients } from "../patient/patient.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-
+// let url = "https://medic-db-v1.herokuapp.com/patients"
 // Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyCXCJyjWJHFqDG_QLOeh7Q9kfbqMa-m4fk",
@@ -19,12 +19,13 @@ const firebaseConfig = {
     messagingSenderId: "99199313558",
     appId: "1:99199313558:web:50adf36abcce0088f104b7"
 };
-
+// import { initializeApp as intializeApps } from 'firebase-admin/app';
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+// const { initializeApp } = require('firebase-admin/app');
 
 const auth = getAuth();
-
+// const { initializeApp } = require('firebase-admin/app');
 const currentUser = () => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -39,6 +40,8 @@ const currentUser = () => {
                 gettingCurrentPatient(user.uid)
                 document.querySelector("#home").style.display = "none"
                 document.querySelector("#logout").style.display = "block"
+
+
 
             } else {
                 // User is signed out
@@ -130,21 +133,54 @@ const doctorsProfile = (name, specialization, email, password, username, userID)
         })
 }
 
-// getting all patient details
+// getting all patient details and appointments
+// const appointments = async() => {
+//     const res = await fetch(url)
+
+//     const data = await res.json()
+
+//     const patients = document.querySelector(".patients")
+//     patients.innerHTML += data.map(patient => `
+//     <ul class="prescription d-flex">
+//     <li>${patient.patientName}</li>
+//     <li>${patient.doctor}</li>
+//     <li>${patient.apptDate}</li>
+//     <li>${patient.apptTime}</li>
+//     <li>active</li>
+
+//     </ul>
+//     `)
+
+// }
+
+// appointments()
+
 const db = getDatabase()
-    // const getPatientDetails = (id) => {
+    // const getAllPatientDetails = (id) => {
     //     const dbRef = ref(db);
-    //     get(child(dbRef, `patients${id}`)).then((snapshot) => {
+    //     get(child(dbRef, "Patients")).then((snapshot) => {
     //         if (snapshot.exists()) {
-    //             const helloName = document.querySelector("#helloName");
-    //             helloName.innerHTML = snapshot.val() ? snapshot.val().name : "";
-    //         } else {
-    //             console.log("No data available");
-    //         }
-    //         // return (snapshot.val().name);
-    //     }).catch((error) => {
-    //         console.error(error.message);
-    //     });
+    //             const patients = document.querySelector(".patients")
+    //             console.log(snapshot.val())
+    //             for (let x in snapshot.val()) {
+    //                 patients.innerHTML += ` <ul class="prescription d-flex">
+    //                 <li id="name">${snapshot.val()[x].name}</li>
+    //                 <li id="gender">${snapshot.val()[x].gender}</li>
+    //                 <li id="phone">${snapshot.val()[x].contact}</li>
+    //                 <li id="doc-name">wilis wills</li>
+    //                 <li id='date'>09/07/2021</li>
+    //                 <li id="time">9:30</li>
+    //                 <li id="status">Active</li>
+    //                 </ul>`
+    //             }
+
+//         } else {
+//             console.log("No data available");
+//         }
+//         // return (snapshot.val().name);
+//     }).catch((error) => {
+//         console.error(error.message);
+//     });
 
 // }
 const dbRef = ref(db);
@@ -246,7 +282,7 @@ const getPatients = (data) => {
                 <ul class="prescription d-flex">
                 <li id="name">${snapshot.val()[x].name}</li>
                 <li id='gender'>${snapshot.val()[x].gender}</li>
-                <li id="phone">${snapshot.val()[x].phone}</li>
+                <li id="phone">${snapshot.val()[x].contact}</li>
                 <li id="username">${snapshot.val()[x].username}</li>
                 </ul>
                 `
@@ -321,5 +357,7 @@ export {
     creatingUser,
     creatingDoc,
     getDoctors,
-    getPatients
+    getPatients,
+    // appointments
+    // getAllPatientDetails
 }

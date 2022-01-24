@@ -1,3 +1,4 @@
+import { getAllpatients } from "../patient/patient.js"
 export const prescription_list = document.querySelectorAll("#prescription-list")
 for (let i = 0; i < prescription_list.length; i++) {
     prescription_list[i].addEventListener("click", e => {
@@ -10,7 +11,7 @@ for (let i = 0; i < prescription_list.length; i++) {
 }
 
 const prescribeList = () => {
-    return patientDetails.innerHTML = `
+        patientDetails.innerHTML = `
 <section class="container p-md-5">
 <div class="d-flex flex-wrap justify-content-center">
 
@@ -22,7 +23,7 @@ const prescribeList = () => {
 
 </div>
 
-   <div class="col">
+   <div class="col prescriptions">
 
    <ul class="prescription d-flex">
    <li>doctor</li>
@@ -41,37 +42,7 @@ const prescribeList = () => {
    <li class="prescribe"> Lonart Ds </li>
    </ul>
 
-   <ul class="prescription d-flex">
-   <li id="doc-name">Jonas Dubbie</li>
-   <li id="name">Brutus Dam</li>
-   <li id="disease">Malaria & Typhoid</li>
-   <li class="allergy"> dust </li>
-   <li class="prescribe"> Lonart Ds </li>
-   </ul>
-
-   <ul class="prescription d-flex">
-   <li id="doc-name">Jonas Dubbie</li>
-   <li id="name">Brutus Dam</li>
-   <li id="disease">Malaria & Typhoid</li>
-   <li class="allergy"> dust </li>
-   <li class="prescribe"> Lonart Ds </li>
-   </ul>
-
-   <ul class="prescription d-flex">
-   <li id="doc-name">Jonas Dubbie</li>
-   <li id="name">Brutus Dam</li>
-   <li id="disease">Malaria & Typhoid</li>
-   <li class="allergy"> dust </li>
-   <li class="prescribe"> Lonart Ds </li>
-   </ul>
-
-   <ul class="prescription d-flex">
-   <li id="doc-name">Jonas Dubbie</li>
-   <li id="name">Brutus Dam</li>
-   <li id="disease">Malaria & Typhoid</li>
-   <li class="allergy"> dust </li>
-   <li class="prescribe"> Lonart Ds </li>
-   </ul>
+ 
 
 
   
@@ -79,4 +50,27 @@ const prescribeList = () => {
 
 </section>
 `
+        const prescription_lists = document.querySelector(".prescriptions")
+            // console.log(prescription_list)
+        getAllpatients()
+            .then(res => {
+                    console.log(res);
+
+                    prescription_lists.innerHTML += res.map((patient) => {
+                                return `<ul class="prescription d-flex">
+                                    <li id="doctor">${patient.doctor}</li>
+                                    <li id="name">${patient.patientName ? `${patient.patientName}` : "John dubbie"}</li>
+                                    
+                                    <li id="disease">${patient.disease?`${patient.disease}`:"Not diagnosed"}</li>
+                                    <li id=status>Active</li>
+                                    <li class="prescribe">${patient.prescription?`${patient.prescription}`:"No prescription"}</li>
+                                </ul>
+                        `
+                        
+})
+}
+)
+
+
+
 }

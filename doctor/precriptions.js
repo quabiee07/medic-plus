@@ -49,7 +49,7 @@ const prescribe = () => {
                 <li id=patient-id>${patient.id}</li>
                 <li id="name">${patient.patientName ? `${patient.patientName}` : "John dubbie"
                 }</li>
-                <li id="disease">Malaria & Typhoid</li>
+                <li id="disease">${patient.disease?`${patient.disease}`:"Not diagnosed"}</li>
                 <li id=status>Active</li>
                 <li class="prescribe">${patient.prescription?`${patient.prescription}`:"No prescription"}</li>
                 </ul>
@@ -66,7 +66,8 @@ const prescribe = () => {
         const pres_btn = document.querySelectorAll("#prescribe-btn");
 const pid=document.querySelectorAll("#patient-id")
 const pname=document.querySelectorAll("#name")
-
+const disease=document.querySelector("#disease-field")
+// console.log(disease)
 prescribed.addEventListener("click",e=>{
     console.log(doc_prescription.value)
     for(let i=0;i<pname.length;i++){
@@ -75,7 +76,7 @@ prescribed.addEventListener("click",e=>{
             // console.log(pname[i].textContent,pname[i].previousElementSibling)
         const prescription=doc_prescription.value
 //   console.log(prescription);
-  updateUserPrescription(confirm_id.value,prescription)
+  updateUserPrescription(confirm_id.value,prescription,disease.value)
     }
     }
    
@@ -91,9 +92,9 @@ const data=await res.json()
 return data
 }
 
-const updateUserPrescription=async(id,prescription)=>{
+const updateUserPrescription=async(id,prescription,disease)=>{
     const singlePatient= await fetchPatient(id)
-    const update={...singlePatient,prescription}
+    const update={...singlePatient,prescription,disease}
 const res= await fetch(`https://medic-db-v1.herokuapp.com/patients/${id}`,{
     method:"PUT",
     headers:{

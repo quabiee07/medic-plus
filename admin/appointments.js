@@ -1,3 +1,6 @@
+// import { getAllPatientDetails } from "./firebase.js"
+import { getAllpatients } from "../patient/patient.js"
+// import { appointments as patientAppt } from "./firebase.js"
 export const appointment = document.querySelectorAll("#appointment-details")
 for (let i = 0; i < appointment.length; i++) {
     appointment[i].addEventListener("click", e => {
@@ -10,74 +13,52 @@ for (let i = 0; i < appointment.length; i++) {
 }
 
 const appointments = () => {
-    return patientDetails.innerHTML = `
+    patientDetails.innerHTML = `
 <section class="container p-md-5">
 <div class="d-flex flex-wrap justify-content-center">
 
 <div style="overflow-x:hidden " class="col-12 d-flex flex-wrap align-items-center p-2 bg-light mt-5">
 <div class="p-3 col-3  col-lg-2 m-auto"> <img src="../images/profile.svg" class="img-fluid " alt=""></div> 
- <div class="col-10 col-md m-auto p-md-3 text-center text-md-start"> <p class="h4 m-auto" id="greeting">Hello, William Kpenkelemense</p>
+ <div class="col-10 col-md m-auto p-md-3 text-center text-md-start"> <p class="h4 m-auto" id="greeting">Hello, Administrator</p>
      <p class="text-secondary">Welcome back</p>
  </div>
 
 </div>
 
-   <div class="col">
+   <div class="col patients">
 
    <ul class="prescription d-flex">
    <li>patient</li>
-   <li>gender</li>
-   <li>phone</li>
    <li>doctor</li>
    <li>date</li>
    <li>time</li>
    <li>status</li>
-  
+
    </ul>
 
-   <ul class="prescription d-flex">
-   <li id="name">Jonas Dubbie</li>
-   <li id="gender">male</li>
-   <li id="phone">090789609876</li>
-   <li id="doc-name">wilis wills</li>
-   <li id='date'>09/07/2021</li>
-   <li id="time">9:30</li>
-   <li id="status">Active</li>
-   </ul>
 
-   <ul class="prescription d-flex">
-   <li id="name">Jonas Dubbie</li>
-   <li id="gender">male</li>
-   <li id="phone">090789609876</li>
-   <li id="doc-name">wilis wills</li>
-   <li id='date'>09/07/2021</li>
-   <li id="time">9:30</li>
-   <li id="status">Active</li>  
-   </ul>
 
-   <ul class="prescription d-flex">
-   <li id="name">Jonas Dubbie</li>
-   <li id="gender">male</li>
-   <li id="phone">090789609876</li>
-   <li id="doc-name">wilis wills</li>
-   <li id='date'>09/07/2021</li>
-   <li id="time">9:30</li>
-   <li id="status">Cancelled</li>  
-   </ul>
 
-   <ul class="prescription d-flex">
-   <li id="name">Jonas Dubbie</li>
-   <li id="gender">male</li>
-   <li id="phone">090789609876</li>
-   <li id="doc-name">wilis wills</li>
-   <li id='date'>09/07/2021</li>
-   <li id="time">9:30</li>
-   <li id="status">Cancelled</li>  
-   </ul>
 
-  
    </div>
 
 </section>
 `
+    const patients = document.querySelector(".patients")
+
+    getAllpatients()
+        .then(data => {
+            patients.innerHTML += data.map(patient => `
+                    <ul class="prescription d-flex">
+                    <li>${patient.patientName}</li>
+                    <li>${patient.doctor}</li>
+                    <li>${patient.apptDate}</li>
+                    <li>${patient.apptTime}</li>
+                    <li>active</li>
+
+                </ul>
+                `)
+        })
+
+    // getAllPatientDetails()
 }

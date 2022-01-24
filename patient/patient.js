@@ -1,11 +1,15 @@
 import { dashDisplay } from "./dashboard.js"
 // 
 import { signoutUser } from "../admin/firebase.js";
-const patientDetails = document.querySelector("#patientDetails")
 const sideNav = document.querySelector(".side-navigation")
 const logout = document.querySelector("#logout");
+const patientDetails = document.querySelector("#patientDetails")
 
-dashDisplay()
+
+if (patientDetails) {
+    dashDisplay()
+
+}
 
 
 export const closeNav = () => {
@@ -40,9 +44,11 @@ export const addPatients = async(info) => {
         return data
     }
     // console.log(logout)
-logout.addEventListener("click", e => {
-    signoutUser()
-})
+if (logout) {
+    logout.addEventListener("click", e => {
+        signoutUser()
+    })
+}
 
 
 

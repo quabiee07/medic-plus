@@ -15,7 +15,7 @@ const deleteDoc = () => {
 
     <div style="" class="col-12 d-flex flex-wrap align-items-center p-2  mt-5">
     <div class="p-3 col-3  col-lg-2 m-auto d-none"> <img src="../images/profile.svg" class="img-fluid " alt=""></div> 
-      <div class="col-12 col-md m-auto  text-md-start"> <p class="h4 m-auto text-center" id="greeting">Hello, Adminstrator</p>
+      <div class="col-12 col-md m-auto  text-md-start"> <p class="h4 m-auto text-center" id="greeting">Hello, Admin</p>
 
       </div>
 

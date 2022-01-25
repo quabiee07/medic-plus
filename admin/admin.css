@@ -6,6 +6,19 @@
     text-transform: capitalize;
 }
 
-.hover-card:hover {
-    background-color: green
+.card {
+    background-color: #333D7B;
+    cursor: pointer;
+    transform: translateY(0);
+}
+
+.manage-doc {
+    background-color: white;
+}
+
+.card:hover,
+.manage-doc:hover {
+    background-color: rgb(114, 176, 247);
+    transition: all .5s;
+    transform: translateY(-5%);
 }

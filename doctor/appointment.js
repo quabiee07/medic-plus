@@ -69,6 +69,8 @@ const appointments = () => {
         })
 }
 
+export { appointments }
+
 
 /* <table class="" style="width:100%">
 

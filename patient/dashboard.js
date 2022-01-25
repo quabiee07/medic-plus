@@ -2,6 +2,8 @@ import { currentUser } from "../admin/firebase.js"
 
 export const dashboard = document.querySelectorAll("#dashboard")
 import { bookApp } from "./book-app.js"
+import { appointments } from "./appointment.js"
+import { prescribe } from "./prescription.js"
 
 for (let i = 0; i < dashboard.length; i++) {
     dashboard[i].addEventListener("click", e => {
@@ -28,8 +30,8 @@ export const dashDisplay = () => {
                     </div>
 
                     <div class="col-12 d-lg-flex  flex-wrap  mt-5  justify-content-between">
-                        <div class="m-auto col col-md-6 col-lg-4 pe-lg-3  m-lg-0 bookAppt-card">
-                            <div class="card mt-4 mt-lg-0 m-auto text-light m-lg-0 " style="height: 250px;   background-color: #333D7B;font-size:24px">
+                        <div class="m-auto col col-md-6 col-lg-4 pe-lg-3  m-lg-0 ">
+                            <div class="card mt-4 mt-lg-0 m-auto text-light m-lg-0 bookAppt-card" style="height: 250px; font-size:24px">
 
                                 <div class="card-body h4 d-flex flex-wrap">
                                     <div class="card-img col-12"><img src="../images/book-appoinment.png" alt=""></div>
@@ -38,11 +40,10 @@ export const dashDisplay = () => {
                                 </div>
 
                             </div>
-                            <div class="text-center text-lg-start"> <a href="#" class=" text-center text-decoration-underline text-capitalize" style="color: #9CC2D5;">book-appointment</a></div>
                             </div>
 
-                        <div class="col col-md-6 col-lg-4 px-lg-2  m-auto m-lg-0 appt-card">
-                            <div class=" card text-light mt-4 mt-lg-0 m-auto  m-lg-0" style="height: 250px;  background-color: #333D7B;font-size:24px">
+                        <div class="col  col-md-6 col-lg-4 px-lg-2  m-auto m-lg-0 ">
+                            <div class="card text-light mt-4 mt-lg-0 m-auto  m-lg-0 appt-card" style="height: 250px;  font-size:24px">
                                 <div class="card-body h4 d-flex flex-wrap">
                                     <div class="card-img col-12"><img src="../images/appointment.png" alt=""></div>
 
@@ -50,11 +51,10 @@ export const dashDisplay = () => {
                                 </div>
 
                             </div>
-                            <div class="text-center text-lg-start"> <a href="#" class=" text-center text-decoration-underline text-capitalize" style="color: #9CC2D5;">appointment</a></div>
-                            </div>
+                           </div>
 
-                        <div class="col col-md-6 col-lg-4 ps-lg-3  m-auto m-lg-0 prescription-card">
-                            <div class="card mt-4 mt-lg-0  m-auto m-lg-0" style="height: 250px; ">
+                        <div class="col col-md-6 col-lg-4 ps-lg-3  m-auto m-lg-0 ">
+                            <div class="card mt-4 mt-lg-0  m-auto m-lg-0 prescription-card" style="height: 250px; ">
                                 <div class="card-body h4 d-flex flex-wrap">
                                     <div class="card-img col-12"><img src="../images/prescription-purple.png" alt=""></div>
 
@@ -62,8 +62,7 @@ export const dashDisplay = () => {
                                 </div>
 
                             </div>
-                           <div class="text-center text-lg-start"> <a href="#" class=" text-center text-decoration-underline text-capitalize" style="color: #9CC2D5;">view prescription</a></div>
-                        </div>
+                           </div>
 
                     </div>
                 </div>
@@ -71,11 +70,23 @@ export const dashDisplay = () => {
     `
     currentUser()
 
-    const book_card = document.querySelector("#bookAppt-card")
+    const book_card = document.querySelector(".bookAppt-card")
     book_card.addEventListener("click", e => {
         bookApp()
     })
 
+    const appt_card = document.querySelector(".appt-card")
+    appt_card.addEventListener("click", e => {
+        appointments()
+    })
+
+    const prescribe_card = document.querySelector(".prescription-card")
+    prescribe_card.addEventListener("click", e => {
+        prescribe()
+    })
+
+
+
 }
 
-// console.log("HEllo")
+// console.log("HEllo")`appointments from "./ap"

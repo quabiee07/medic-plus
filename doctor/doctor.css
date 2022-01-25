@@ -8,3 +8,19 @@
     bottom: 0;
     left: 10%;
 }
+
+.card {
+    background-color: #333D7B;
+    transition: all .5s;
+    transform: translateY(0);
+}
+
+.prescribe-card {
+    background-color: white;
+    transform: translateY(0);
+}
+
+.card:hover {
+    background-color: rgb(114, 176, 247);
+    transform: translateY(-5%);
+}

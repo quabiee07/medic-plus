@@ -49,3 +49,5 @@ const view_doctors = () => {
 
     getDoctors("Doctors")
 }
+
+export { view_doctors }

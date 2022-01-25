@@ -36,7 +36,6 @@ const appointments = () => {
            <li>date</li>
            <li>time</li>
            <li>status</li>
-           <li>action</li>
            </ul>
 
           
@@ -58,14 +57,10 @@ const appointments = () => {
                 apptInfo.innerHTML += `
                 <ul class="appointment d-flex">
                 <li id="order">${patient.id}</li>
-                <li id="name">${patient.patientName}</li>
+                <li id="name">${patient.doctor}</li>
                 <li id='date'>${patient.apptDate}</li>
                 <li id="time">${patient.apptTime}</li>
                 <li id="stat">Active</li>
-                <li class="modify">
-                 <span class="edit"><img class="img-fluid" style="width:15px" src="../images/pen.png"></span>
-                <span class="delete"><img class="img-fluid mx-3" style="width:15px"  src="../images/garbage.png"></span>
-                </li>
                 </ul>
      
                 `
@@ -73,6 +68,8 @@ const appointments = () => {
 
         })
 }
+
+export { appointments }
 
 
 /* <table class="" style="width:100%">

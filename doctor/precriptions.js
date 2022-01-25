@@ -11,7 +11,7 @@ for (let i = 0; i < prescription.length; i++) {
 }
 
 const prescribe = () => {
-        patientDetails.innerHTML = `
+    patientDetails.innerHTML = `
 <section class="container p-md-5">
 <div class="d-flex flex-wrap justify-content-center">
 
@@ -37,21 +37,20 @@ const prescribe = () => {
 </section>
 
 `;
-        const prescribed = document.querySelector("#prescribed-btn");
+    const prescribed = document.querySelector("#prescribed-btn");
 
-        const prescriptions = document.querySelector("#prescriptions");
-        const confirm_id = document.querySelector("#confirm-id");
-        const doc_prescription = document.querySelector("#prescription-field");
-        getAllpatients().then((res) => {
-                    res.map((patient, index) => {
-                                prescriptions.innerHTML += `
+    const prescriptions = document.querySelector("#prescriptions");
+    const confirm_id = document.querySelector("#confirm-id");
+    const doc_prescription = document.querySelector("#prescription-field");
+    getAllpatients().then((res) => {
+        res.map((patient, index) => {
+            prescriptions.innerHTML += `
                 <ul class="appointment d-flex">
                 <li id=patient-id>${patient.id}</li>
-                <li id="name">${patient.patientName ? `${patient.patientName}` : "John dubbie"
-                }</li>
-                <li id="disease">${patient.disease?`${patient.disease}`:"Not diagnosed"}</li>
+                <li id="name">${patient.patientName}</li>
+                <li id="disease">${patient.disease}</li>
                 <li id=status>Active</li>
-                <li class="prescribe">${patient.prescription?`${patient.prescription}`:"No prescription"}</li>
+                <li class="prescribe">${patient.prescription}</li>
                 </ul>
                 `;
         });
@@ -64,45 +63,47 @@ const prescribe = () => {
 
         console.log(patientsName);
         const pres_btn = document.querySelectorAll("#prescribe-btn");
-const pid=document.querySelectorAll("#patient-id")
-const pname=document.querySelectorAll("#name")
-const disease=document.querySelector("#disease-field")
-// console.log(disease)
-prescribed.addEventListener("click",e=>{
-    console.log(doc_prescription.value)
-    for(let i=0;i<pname.length;i++){
-        // console.log(pname[i].textContent);
-        if(confirm_id.value== pid[i].textContent){
-            // console.log(pname[i].textContent,pname[i].previousElementSibling)
-        const prescription=doc_prescription.value
-//   console.log(prescription);
-  updateUserPrescription(confirm_id.value,prescription,disease.value)
-    }
-    }
-   
-   
-})
+        const pid = document.querySelectorAll("#patient-id")
+        const pname = document.querySelectorAll("#name")
+        const disease = document.querySelector("#disease-field")
+            // console.log(disease)
+        prescribed.addEventListener("click", e => {
+            console.log(doc_prescription.value)
+            for (let i = 0; i < pname.length; i++) {
+                // console.log(pname[i].textContent);
+                if (confirm_id.value == pid[i].textContent) {
+                    // console.log(pname[i].textContent,pname[i].previousElementSibling)
+                    const prescription = doc_prescription.value
+                        //   console.log(prescription);
+                    updateUserPrescription(confirm_id.value, prescription, disease.value)
+                }
+            }
 
-          
+
+        })
+
+
     });
 };
-const fetchPatient=async (id)=>{
-const res= await fetch(`https://medic-db-v1.herokuapp.com/patients/${id}`)
-const data=await res.json()
-return data
+const fetchPatient = async(id) => {
+    const res = await fetch(`https://medic-db-v1.herokuapp.com/patients/${id}`)
+    const data = await res.json()
+    return data
 }
 
-const updateUserPrescription=async(id,prescription,disease)=>{
-    const singlePatient= await fetchPatient(id)
-    const update={...singlePatient,prescription,disease}
-const res= await fetch(`https://medic-db-v1.herokuapp.com/patients/${id}`,{
-    method:"PUT",
-    headers:{
-        "Content-type":"application/json"
-    },
-    body:JSON.stringify(update)
-    
-})
-const data= await res.json()
-console.log(data)
+const updateUserPrescription = async(id, prescription, disease) => {
+    const singlePatient = await fetchPatient(id)
+    const update = {...singlePatient, prescription, disease }
+    const res = await fetch(`https://medic-db-v1.herokuapp.com/patients/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify(update)
+
+    })
+    const data = await res.json()
+    console.log(data)
 }
+
+export { prescribe }

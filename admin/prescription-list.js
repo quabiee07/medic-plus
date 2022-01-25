@@ -67,10 +67,8 @@ const prescribeList = () => {
                                 </ul>
                         `
                         
-})
+        })
+    })
 }
-)
 
-
-
-}
+export { prescribeList }

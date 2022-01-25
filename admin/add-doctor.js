@@ -96,3 +96,4 @@ const addDoctorForm = () => {
         creatingDoc(doc_name.value, specialization.value, email.value, password.value, username.value)
     })
 }
+export { addDoctorForm }

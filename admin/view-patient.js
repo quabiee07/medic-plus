@@ -44,3 +44,5 @@ const view_patients = () => {
 
     getPatients("Patients")
 }
+
+export { view_patients}

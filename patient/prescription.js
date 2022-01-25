@@ -69,3 +69,5 @@ const prescribe = () => {
 `
     currentUser()
 }
+
+export { prescribe }
